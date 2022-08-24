@@ -1,13 +1,62 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="WebTend">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
+    <!--====== Title ======-->
+    <title>Mexrojxon | Portfolio</title>
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <!--====== Google Fonts ======-->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap"
+          rel="stylesheet">
+    <!--====== FontAwesome ======-->
+    <link href="{% static 'css/fontawesome.5.9.0.min.css' %}" rel="stylesheet">
+    <!--====== Bootstrap ======-->
+    <link href="{% static 'css/bootstrap-4.5.3.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!--====== Spacing ======-->
+    <link href="{% static 'css/spacing.min.css' %}" rel="stylesheet">
+    <!--====== PagePiling ======-->
+    <link href="{% static 'css/jquery.pagepiling.css' %}" rel="stylesheet">
+    <!--====== Slick Slider ======-->
+    <link href="{% static 'css/slick.min.css' %}" rel="stylesheet">
+    <!--====== Animate CSS ======-->
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <!--====== Main css ======-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body class="body-piling">
+
+{% block content %}
+
+{% endblock %}
+
+<!--====== Jquery ======-->
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<!--====== Bootstrap ======-->
+<script src="{% static 'js/bootstrap.4.5.3.min.js' %}"></script>
+<!--====== PagePiling ======-->
+<script src="{% static 'js/jquery.pagepiling.min.js' %}"></script>
+<!--====== Jquery Viewport ======-->
+<script src="{% static 'js/jquery.viewport.js' %}"></script>
+<!--====== SmoothScroll ======-->
+<script src="{% static 'js/smoothscroll.js' %}"></script>
+<!--====== Popper ======-->
+<script src="{% static 'js/popper.min.js' %}"></script>
+<!--====== Slick Slider ======-->
+<script src="{% static 'js/slick.min.js' %}"></script>
+<!--====== Typed ======-->
+<script src="{% static 'js/typed.min.js' %}"></script>
+<!--====== Main JS ======-->
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

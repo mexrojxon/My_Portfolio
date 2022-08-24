@@ -1,0 +1,534 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="wrapper">
+
+
+
+        <header id="header" class="header">
+            <div class="container-fluid">
+                <div class="brand">
+                    <a href="#About" class="brand-name"><b>Nizomov</b> Mexroj</a>
+                </div>
+                <div class="lets-chat">
+                    <span>My Blog</span>
+                    <a href="./blog.html">
+                        <button><i class="bi bi-pencil"></i></button>
+                    </a>
+                </div>
+                <button class="nav-toggle-btn a-nav-toggle">
+                    <span class="hamburger">
+                        <span class="top-bun"></span>
+                        <span class="meat"></span>
+                        <span class="bottom-bun"></span>
+                    </span>
+                </button>
+                <div class="hide-menu a-nav-toggle"></div>
+                <div class="menu">
+                    <div class="menu-lang">
+                        <a href="#" class="menu-lang-item active">UZB</a>
+                        <a href="#" class="menu-lang-item">ENG</a>
+                        <a href="#" class="menu-lang-item">RUS</a>
+                    </div>
+                    <div class="menu-main mt-100" id="accordion">
+                        <ul id="menuMain">
+                            <li data-menuanchor="About" class="active"><a href="#About">About</a></li>
+                            <li data-menuanchor="Services"><a href="#Services">Services</a></li>
+                            <li data-menuanchor="Skills"><a href="#Skills">Skills</a></li>
+                            <li data-menuanchor="Resume"><a href="#Resume">Resume</a></li>
+                            <li data-menuanchor="Portfolio"><a href="#Portfolio">Portfolio</a></li>
+                            <li data-menuanchor="Testimonials"><a href="#Testimonials">Testimonials</a></li>
+                            <li data-menuanchor="Weapons"><a href="#Weapons">Weapons</a></li>
+                            <li data-menuanchor="Contact"><a href="#Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-ornament"></div>
+                </div>
+            </div>
+        </header>
+        <div id="content">
+            <div class="a-pagepiling full-page">
+
+                <!-- Section About Page -->
+                <div class="section pp-scrollable slide slide-about a-slide-typed" data-name="about">
+                    <div class="slide-container">
+                        <div class="container">
+                            <div class="number-email-cv">
+                                <ul class="number-email">
+                                    <li>Call me <a href="callto:+998903550427">+998903550427</a></li>
+                                    <li><a href="mailto:mexrojxon.dev@gmail.com">mexrojxon.dev@gmail.com</a></li>
+                                </ul>
+                                <a href="{% static "/files/Nizomov_CV.pdf"%}" class="download-cv">Download CV <i
+                                        class="fas fa-download"></i></a>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-lg-5">
+                                    <div class="about-content pt-100 rpt-0 animate-element delay5 fadeInUp">
+                                        <span class="sub-title mb-15 animate-element delay3 fadeInUp">About Me</span>
+                                        <h1 class="slide-title animate-element delay5 fadeInUp">Hi,<br> I’m <span
+                                                class="text-typed a-typed a-typed-about" data-text="Mexrojxon"></span>
+                                        </h1>
+                                        <h3 class="animate-element delay7 fadeInUp">Python Backend Developer</h3>
+                                        <p class="animate-element delay8 fadeInUp">Hey are looking for designer to build
+                                            your <b>Brand and gorw your business ?</b> let's shake hands with me.</p>
+                                        <a href="#Contact"
+                                           class="theme-btn mt-45 rmt-25 animate-element delay9 fadeInUp">hire me <i
+                                                class="fas fa-long-arrow-alt-right"></i></a>
+                                        <div class="social-style-one mt-55 rmt-35 animate-element delay10 fadeInUp">
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="about-image pt-100 rpt-50 text-lg-right">
+                                        <div class="about-inner-images">
+                                            <img class="animate-element delay7 fadeInUp"
+                                                 src="{% static 'images/illustratsion/skills2.png' %}" alt="About">
+                                            <img class="shape-one animate-element delay10 bounceIn"
+                                                 src="{% static 'images/about/shape-one.png' %} " alt="Shape">
+                                            <img class="shape-two animate-element delay11 bounceIn"
+                                                 src="{% static 'images/about/shape-two.png' %} " alt="Shape">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Services Page -->
+                <div class="section pp-scrollable slide slide-services slide-light slide-services a-slide-typed"
+                     data-name="services">
+                    <div class="slide-container">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7">
+                                    <div class="service-image animate-element delay4 fadeInUp">
+                                        <span class="sub-title mb-75">Services</span>
+                                        <div class="service-inner-images">
+                                            <img src="{% static 'images/illustratsion/services-removebg-preview.png' %} "
+                                                 alt="Service">
+                                            <img class="shape-one animate-element delay6 bounceIn"
+                                                 src="{% static 'images/services/shape-one.png' %} " alt="shape">
+                                            <img class="shape-two animate-element delay8 bounceIn"
+                                                 src="{% static 'images/services/shape-two.png' %} " alt="shape">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="service-content pt-100 rpt-55 animate-element delay5 fadeInUp">
+                                        <div class="section-title mb-25">
+                                            <h2 class="slide-title animate-element delay5 fadeInUp">What <span
+                                                    class="text-typed a-typed a-typed-services"
+                                                    data-text="Services"></span> i provde to my clients in here.</h2>
+                                        </div>
+                                        <p class="animate-element delay6 fadeInUp">I always want to be able to meet the
+                                            goals of my clients, I value my services as a programmer through my work.
+                                            You may like my <b>services.</b></p>
+                                        <div class="our-services animate-element delay8 fadeInUp">
+                                            <div class="service-item">
+                                                <div class="icon d-flex align-items-center justify-content-center pb-2">
+                                                    <i class="bi-window-sidebar text-white " style="font-size:25px"></i>
+                                                </div>
+                                                <h4>Web Application</h4>
+                                            </div>
+                                            <div class="service-item">
+                                                <div class="icon d-flex align-items-center justify-content-center pb-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                         fill="currentColor" class="bi bi-robot text-white"
+                                                         viewBox="0 0 16 16">
+                                                        <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25.286 25.286 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135Z"/>
+                                                        <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z"/>
+                                                    </svg>
+                                                </div>
+                                                <h4>Telegram-Bot</h4>
+                                            </div>
+                                            <div class="service-item">
+                                                <div class="icon d-flex align-items-center justify-content-center pb-2">
+                                                    <i class="bi bi-gear text-white" style="font-size: 25px;"></i>
+                                                </div>
+                                                <h4>SEO Optimization</h4>
+                                            </div>
+                                            <div class="service-item">
+                                                <div class="icon d-flex align-items-center justify-content-center pb-2">
+                                                    <i class="bi bi-cloud-arrow-up text-white"
+                                                       style="font-size: 25px;"></i></div>
+                                                <h4>DevOps</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Skills Page -->
+                <div class="section pp-scrollable slide slide-skills a-slide-typed" data-name="skills">
+                    <div class="slide-container">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-5">
+                                    <div class="skill-content animate-element delay5 fadeInUp">
+                                        <div class="section-title mb-25">
+                                            <span class="sub-title mb-45">Skills</span>
+                                            <h2 class="slide-title animate-element delay5 fadeInUp">As a Developer i am
+                                                good at fit with few <span class="text-typed a-typed a-typed-skills"
+                                                                           data-text="skills."></span></h2>
+                                        </div>
+                                        <p class="animate-element delay6 fadeInUp">All programmers have good skills to
+                                            make sure satisfied their clients, As a developer I am also specialised few
+                                            <b>skills.</b></p>
+                                        <div class="bar-list a-progressbar pt-5 animate-element delay9 fadeInUp">
+                                            <div class="bar-item">
+                                                <div class="row">
+                                                    <div class="col bar-item-title">Python + Django</div>
+                                                    <div class="col-auto text-right bar-item-value">65%</div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="65"
+                                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="bar-item">
+                                                <div class="row">
+                                                    <div class="col bar-item-title">Algorithm + Database</div>
+                                                    <div class="col-auto text-right bar-item-value">65%</div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="75"
+                                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="bar-item">
+                                                <div class="row">
+                                                    <div class="col bar-item-title">REST API + Aiogram</div>
+                                                    <div class="col-auto text-right bar-item-value">55%</div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="55"
+                                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="bar-item">
+                                                <div class="row">
+                                                    <div class="col bar-item-title">HTML + CSS</div>
+                                                    <div class="col-auto text-right bar-item-value">75%</div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="65"
+                                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="bar-item">
+                                                <div class="row">
+                                                    <div class="col bar-item-title">Git + GitHub</div>
+                                                    <div class="col-auto text-right bar-item-value">65%</div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="65"
+                                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="skill-image pt-55 text-lg-right animate-element delay4 fadeInUp">
+                                        <div class="skill-images-inner">
+                                            <img src="{% static 'images/illustratsion/skills.png' %} " alt="Skills">
+                                            <img class="shape-one animate-element delay6 bounceIn"
+                                                 src="{% static 'images/skills/shape-one.png' %} " alt="shape">
+                                            <img class="shape-two animate-element delay8 bounceIn"
+                                                 src="{% static 'images/skills/shape-two.png' %} " alt="shape">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Edu-Exp Page -->
+                <div class="section pp-scrollable slide slide-resume slide-light">
+                    <div class="slide-container">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="educations rmb-55">
+                                        <div class="section-title mb-45 animate-element delay2 fadeInUp">
+                                            <span class="sub-title mb-45">qualification</span>
+                                            <h2 class="slide-title animate-element delay5 fadeInUp">my education</h2>
+                                        </div>
+                                        <div class="edu-experi-wrap">
+                                            <div class="edu-experi-item animate-element delay5 fadeInUp">
+                                                <span class="years">2010-2014</span>
+                                                <div class="vacancy-content">
+                                                    <span class="title">BSC</span>
+                                                    <h4 class="subject">Computer Science</h4>
+                                                    <h6 class="institution">South University Of Bangladesh</h6>
+                                                    <p>Major in UI Design, UX Design, Interaction Design, User Empathy,
+                                                        Branding.</p>
+                                                </div>
+                                            </div>
+                                            <div class="edu-experi-item animate-element delay8 fadeInUp">
+                                                <span class="years">2014-2016</span>
+                                                <div class="vacancy-content">
+                                                    <span class="title">MSC</span>
+                                                    <h4 class="subject">Computer Science</h4>
+                                                    <h6 class="institution">Defodil University of Bangladesh</h6>
+                                                    <p>Product Design, Information Architecture, Understanding the
+                                                        product, Product Analyses, Market Reserach, Communication.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="experiecnes">
+                                        <div class="section-title mb-45 animate-element delay4 fadeInUp">
+                                            <span class="sub-title mb-45">Experiecne</span>
+                                            <h2 class="slide-title animate-element delay5 fadeInUp">My Experiecne</h2>
+                                        </div>
+                                        <div class="edu-experi-wrap">
+                                            <div class="edu-experi-item beahance animate-element delay7 fadeInUp">
+                                                <span class="years">2016-2018</span>
+                                                <div class="vacancy-content">
+                                                    <span class="title">Beahance</span>
+                                                    <h4 class="subject">Uniq Web Design</h4>
+                                                    <p>After finishing my studies, I first concentrated on my work in <a
+                                                            href="https://www.behance.net">Behance</a>, here I worked as
+                                                        a web designer for 2 years. It was really a big experience for
+                                                        me.</p>
+                                                </div>
+                                            </div>
+                                            <div class="edu-experi-item dribbble animate-element delay10 fadeInUp">
+                                                <span class="years">2018-2020</span>
+                                                <div class="vacancy-content">
+                                                    <span class="title">Dribbble</span>
+                                                    <h4 class="subject">Product Designer</h4>
+                                                    <p>After working well for two years at <a
+                                                            href="https://dribbble.com">dribbble</a>, I got the
+                                                        opportunity to work in one of the best market dribbles in the
+                                                        world, and there I am now working as a podcast designer.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Portfolio Page -->
+                <div class="section pp-scrollable slide slide-portfolio a-slide-typed" data-name="portfolio">
+                    <div class="slide-container">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-between mb-25">
+                                <div class="col-xl-5 col-lg-6">
+                                    <div class="portfolio-content">
+                                        <div class="section-title mb-35">
+                                            <span class="sub-title mb-45 animate-element delay5 fadeInUp">Portfolio</span>
+                                            <h2 class="slide-title animate-element delay6 fadeInUp">Some of my Creative
+                                                <span class="text-typed a-typed a-typed-portfolio"
+                                                      data-text="Works."></span></h2>
+                                        </div>
+                                        <p class="animate-element delay7 fadeInUp">Here you can see some of my projects
+                                            as a developer. In the future, <b>their number will increase.</b></p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5 col-lg-6">
+                                    <div class="counter-wrap rmb-15 animate-element delay9 fadeInUp">
+                                        <div class="success-box">
+                                            <span class="count-text lass-than-ten" data-speed="3000"
+                                                  data-stop="1">0</span>
+                                            <h6>Years of Experience</h6>
+                                        </div>
+                                        <div class="success-box">
+                                            <span class="count-text plus" data-speed="3000" data-stop="3">0</span>
+                                            <h6>Satisfied Clients</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portfolio-wrap" style="box-shadow: 0 !important">
+                                <div class="col-lg-6">
+                                    <div class="landing-preview-item animate-element delay5 fadeInLeft"
+                                         style="box-shadow: 0 !important">
+                                        <a class="image" href="index-light.html"
+                                           style="background-image: url(assets/{% static 'images/previews/light.png' %} );">
+                                            <button class="theme-btn">view demo</button>
+                                        </a>
+                                        <h4><a href="index-light.html">light version</a></h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="landing-preview-item animate-element delay5 fadeInRight">
+                                        <a class="image" href="index-dark.html"
+                                           style="background-image: url(assets/{% static 'images/previews/testo.png' %} );">
+                                            <button class="theme-btn">view demo</button>
+                                        </a>
+                                        <h4><a href="index-dark.html">Dark version</a></h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="landing-preview-item animate-element delay5 fadeInRight">
+                                        <a class="image" href="index-dark.html"
+                                           style="background-image: url(assets/{% static 'images/previews/testo.png' %} );">
+                                            <button class="theme-btn">view demo</button>
+                                        </a>
+                                        <h4><a href="index-dark.html">Project Name</a></h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="landing-preview-item animate-element delay5 fadeInRight">
+                                        <a class="image" href="index-dark.html"
+                                           style="background-image: url(assets/{% static 'images/previews/testo.png' %} );">
+                                            <button class="theme-btn">view demo</button>
+                                        </a>
+                                        <h4><a href="index-dark.html">Dark version</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Weapons Page -->
+                <div class="section pp-scrollable slide slide-weapons a-slide-typed" data-name="weapons">
+                    <div class="slide-container">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="weapons-content rmb-75 animate-element delay5 fadeInUp">
+                                        <div class="section-title mb-35">
+                                            <span class="sub-title mb-45">My Weapons</span>
+                                            <h2 class="slide-title animate-element delay5 fadeInUp">My <span
+                                                    class="text-typed a-typed a-typed-weapons"
+                                                    data-text="favorite tools"></span> which i Used Everyday in my life.
+                                            </h2>
+                                        </div>
+                                        <p class="animate-element delay6 fadeInUp">I always loved those software that I
+                                            use in my work, because I am very good at these, these are the main tools of
+                                            my programming career those are help me for make sure my Clients
+                                            satisfaction.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="weapons-images">
+                                        <div class="weapons-item one animate-element delay11 bounceIn">
+                                            <img src="{% static 'images/weapons/python.png' %} " alt="Figma">
+                                        </div>
+                                        <div class="weapons-item two animate-element delay5 fadeInDown">
+                                            <img src="{% static 'images/weapons/vc_code.png' %} " alt="XD">
+                                        </div>
+                                        <div class="weapons-item three animate-element delay6 fadeInUp">
+                                            <img src="{% static 'images/weapons/github.png' %} " alt="linkedin">
+                                        </div>
+                                        <div class="weapons-item four animate-element delay7 fadeInLeft">
+                                            <img src="{% static 'images/weapons/terminal.png' %} " alt="sketch">
+                                        </div>
+                                        <div class="weapons-item five animate-element delay8 fadeInRight">
+                                            <img src="{% static 'images/weapons/google.png' %} " alt="google">
+                                        </div>
+                                        <div class="weapons-item six animate-element delay9 fadeInLeft">
+                                            <img src="{% static 'images/weapons/ubuntu.svg' %} " alt="dribbble">
+                                        </div>
+                                        <div class="weapons-item seven animate-element delay10 fadeInUp">
+                                            <img src="{% static 'images/weapons/django.svg' %} " alt="skype">
+                                        </div>
+                                        <div class="weapons-item eight animate-element delay5 fadeInRight">
+                                            <img src="{% static 'images/weapons/pycharm.png' %} " alt="slack">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Contact Page -->
+                <div class="section pp-scrollable slide slide-contact slide-light">
+                    <div class="slide-container">
+                        <div class="container">
+                            <div class="contact-wrap mb-185 rmb-95">
+                                <div class="row align-items-end">
+                                    <div class="col-lg-7">
+                                        <div class="contact-content">
+                                            <div class="section-title mb-55">
+                                                <span class="sub-title mb-55 animate-element delay5 fadeInUp">contact me</span>
+                                                <h2 class="slide-title animate-element delay6 fadeInUp">Estimate your
+                                                    project? Let me know here.</h2>
+                                            </div>
+                                            <form action="#" class="contact-form animate-element delay8 fadeInUp">
+                                                <div class="form-group">
+                                                    <input type="text" id="name" name="name" class="form-control"
+                                                           placeholder="What's your name?" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" id="email" name="email" class="form-control"
+                                                           placeholder="Your email" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="message" id="message" rows="1" class="form-control"
+                                                              placeholder="Tell me about your project"
+                                                              required></textarea>
+                                                </div>
+                                                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="contact-image animate-element text-center delay7 fadeInLeft">
+                                            <img src="{% static 'images/illustratsion/footer-removebg-preview.png' %} "
+                                                 alt="Contact">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-contact text-center mb-35">
+                                <div class="section-title mb-30 animate-element delay8 fadeInUp">
+                                    <h2>Stay Connected</h2>
+                                </div>
+                                <span class="country list-inline-item animate-element delay9 fadeInUp">Tashkent. Uzbekistan</span>
+                                <h3 class="animate-element delay6 fadeInUp"><a href="mailto:mexrojxon.dev@gmail.com">mexrojxon.dev@gmail.com</a>
+                                </h3>
+                                <a href="callto:+998903550427"
+                                   class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
+                                <div class="social-style-two mt-25 animate-element delay11 fadeI nUp">
+                                    <a href="#"><img src="{% static 'images/contact/social-dribbble.png' %} " alt="Social"></a>
+                                    <a href="#"><img src="{% static 'images/contact/social-behance.png' %} " alt="Social"></a>
+                                    <a href="#"><img src="{% static 'images/contact/social-instagram.png' %} " alt="Social"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom-girl animate-element delay12 zoomIn">
+                        </div>
+                        <div class="footer-bottom-shape">
+                            <img src="{% static 'images/contact/footer-bottom-shape.png' %} " alt="Shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fliuid">
+            <div class="progress-nav">
+                <ul id="menu">
+                    <li data-menuanchor="About" class="active"></li>
+                    <li data-menuanchor="Services"></li>
+                    <li data-menuanchor="Skills"></li>
+                    <li data-menuanchor="Resume"></li>
+                    <li data-menuanchor="Portfolio"></li>
+                    <li data-menuanchor="Testimonials"></li>
+                    <li data-menuanchor="Weapons"></li>
+                    <li data-menuanchor="Contact"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
