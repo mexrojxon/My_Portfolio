@@ -53,5 +53,5 @@ class PortfolioModel(models.Model):
         verbose_name_plural = _('portfolios')
 
     def __str__(self):
-        return self.project_name
+        return self.project_link
 
