@@ -289,17 +289,16 @@
                                             <h2 class="slide-title animate-element delay5 fadeInUp">My Experiecne</h2>
                                         </div>
                                         <div class="edu-experi-wrap">
-                                            <div class="edu-experi-item dribbble animate-element delay10 fadeInUp">
-                                                <span class="years">2018-2020</span>
-                                                <div class="vacancy-content">
-                                                    <span class="title">Dribbble</span>
-                                                    <h4 class="subject">Product Designer</h4>
-                                                    <p>After working well for two years at <a
-                                                            href="https://dribbble.com">dribbble</a>, I got the
-                                                        opportunity to work in one of the best market dribbles in the
-                                                        world, and there I am now working as a podcast designer.</p>
+                                            {% for job in experience %}
+                                                <div class="edu-experi-item dribbble animate-element delay10 fadeInUp">
+                                                    <span class="years">{{ job.start_date|date:'Y'}}-{{ job.end_date|date:'Y'}}</span>
+                                                    <div class="vacancy-content">
+                                                        <span class="title">{{ job.company }}</span>
+                                                        <h4 class="subject">{{ job.position }}</h4>
+                                                        <p>{{ job.short_description }}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>

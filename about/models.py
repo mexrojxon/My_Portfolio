@@ -16,7 +16,7 @@ class EducationModel(models.Model):
     faculty = models.CharField(max_length=70, verbose_name=_('faculty'), blank=True, null=True)
     start_date = models.DateField(verbose_name=_('start_date'))
     end_date = models.DateField(verbose_name=_('end_date'))
-    short_description = models.CharField(max_length=255, verbose_name=_('short_description'))
+    short_description = models.TextField(verbose_name=_('short_description'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     class Meta:
@@ -25,3 +25,19 @@ class EducationModel(models.Model):
 
     def __str__(self):
         return self.place
+
+
+class ExperienceModel(models.Model):
+    company = models.CharField(max_length=80, verbose_name=_('company'))
+    position = models.CharField(max_length=50, verbose_name=_('position'))
+    short_description = models.TextField(verbose_name=_('short_description'))
+    start_date = models.DateField(verbose_name=_('start_date'))
+    end_date = models.DateField(verbose_name=_('end_date'))
+    created_at = models.DateTimeField(verbose_name=_('created_at'))
+
+    class Meta:
+        verbose_name = _('Experience')
+        verbose_name_plural = _('Experiences')
+
+    def __str__(self):
+        return self.company
