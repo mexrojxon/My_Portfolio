@@ -37,7 +37,6 @@
                             <li data-menuanchor="Skills"><a href="#Skills">Skills</a></li>
                             <li data-menuanchor="Resume"><a href="#Resume">Resume</a></li>
                             <li data-menuanchor="Portfolio"><a href="#Portfolio">Portfolio</a></li>
-                            <li data-menuanchor="Testimonials"><a href="#Testimonials">Testimonials</a></li>
                             <li data-menuanchor="Weapons"><a href="#Weapons">Weapons</a></li>
                             <li data-menuanchor="Contact"><a href="#Contact">Contact</a></li>
                         </ul>
@@ -285,13 +284,15 @@
                                 <div class="col-lg-6">
                                     <div class="experiecnes">
                                         <div class="section-title mb-45 animate-element delay4 fadeInUp">
-                                            <span class="sub-title mb-45">Experiecne</span>
-                                            <h2 class="slide-title animate-element delay5 fadeInUp">My Experiecne</h2>
+                                            <span class="sub-title mb-45">Experience</span>
+                                            <h2 class="slide-title animate-element delay5 fadeInUp">My Experience</h2>
                                         </div>
                                         <div class="edu-experi-wrap">
                                             {% for job in experience %}
                                                 <div class="edu-experi-item dribbble animate-element delay10 fadeInUp">
-                                                    <span class="years">{{ job.start_date|date:'Y'}}-{{ job.end_date|date:'Y'}}</span>
+                                                    <span class="years">{{ job.start_date|date:'Y' }}-
+                                                        {% if job.end_date > time.now %} present{% else %}
+                                                            {{ job.end_date|date:'Y' }}{% endif %}</span>
                                                     <div class="vacancy-content">
                                                         <span class="title">{{ job.company }}</span>
                                                         <h4 class="subject">{{ job.position }}</h4>
@@ -339,43 +340,18 @@
                                 </div>
                             </div>
                             <div class="portfolio-wrap" style="box-shadow: 0 !important">
-                                <div class="col-lg-6">
-                                    <div class="landing-preview-item animate-element delay5 fadeInLeft"
-                                         style="box-shadow: 0 !important">
-                                        <a class="image" href="index-light.html"
-                                           style="background-image: url(assets/{% static 'images/previews/light.png' %} );">
-                                            <button class="theme-btn">view demo</button>
-                                        </a>
-                                        <h4><a href="index-light.html">light version</a></h4>
+                                {% for project in portfolio %}
+                                    <div class="col-lg-6">
+                                        <div class="landing-preview-item animate-element delay5 fadeInLeft"
+                                             style="box-shadow: 0 !important">
+                                            <a class="image" href="{{ project.project_link }}"
+                                               style="background-image: url({{ project.image.url }})">
+                                                <button class="theme-btn">view demo</button>
+                                            </a>
+                                            <h4>{{ project.project_name }}</h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="landing-preview-item animate-element delay5 fadeInRight">
-                                        <a class="image" href="index-dark.html"
-                                           style="background-image: url(assets/{% static 'images/previews/testo.png' %} );">
-                                            <button class="theme-btn">view demo</button>
-                                        </a>
-                                        <h4><a href="index-dark.html">Dark version</a></h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="landing-preview-item animate-element delay5 fadeInRight">
-                                        <a class="image" href="index-dark.html"
-                                           style="background-image: url(assets/{% static 'images/previews/testo.png' %} );">
-                                            <button class="theme-btn">view demo</button>
-                                        </a>
-                                        <h4><a href="index-dark.html">Project Name</a></h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="landing-preview-item animate-element delay5 fadeInRight">
-                                        <a class="image" href="index-dark.html"
-                                           style="background-image: url(assets/{% static 'images/previews/testo.png' %} );">
-                                            <button class="theme-btn">view demo</button>
-                                        </a>
-                                        <h4><a href="index-dark.html">Dark version</a></h4>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -436,7 +412,7 @@
                 </div>
 
                 <!-- Section Contact Page -->
-                <div class="section pp-scrollable slide slide-contact slide-light">
+                <div id="Contact" class="section pp-scrollable slide slide-contact slide-light">
                     <div class="slide-container">
                         <div class="container">
                             <div class="contact-wrap mb-185 rmb-95">
@@ -509,7 +485,6 @@
                     <li data-menuanchor="Skills"></li>
                     <li data-menuanchor="Resume"></li>
                     <li data-menuanchor="Portfolio"></li>
-                    <li data-menuanchor="Testimonials"></li>
                     <li data-menuanchor="Weapons"></li>
                     <li data-menuanchor="Contact"></li>
                 </ul>

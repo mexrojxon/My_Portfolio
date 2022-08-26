@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import FilePathField
+from django.db.models import FilePathField, Model
 from django.utils.translation import gettext_lazy as _
 
 
@@ -33,7 +33,7 @@ class ExperienceModel(models.Model):
     short_description = models.TextField(verbose_name=_('short_description'))
     start_date = models.DateField(verbose_name=_('start_date'))
     end_date = models.DateField(verbose_name=_('end_date'))
-    created_at = models.DateTimeField(verbose_name=_('created_at'))
+    created_at = models.DateTimeField(verbose_name=_('created_at'), auto_now_add=True)
 
     class Meta:
         verbose_name = _('Experience')
@@ -41,3 +41,17 @@ class ExperienceModel(models.Model):
 
     def __str__(self):
         return self.company
+
+class PortfolioModel(models.Model):
+    project_name = models.CharField(max_length=100, verbose_name=_('project_name'))
+    project_link = models.URLField(verbose_name=_('project_link'))
+    image = models.ImageField(upload_to='projects/', verbose_name=_('image'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created'))
+
+    class Meta:
+        verbose_name = _('portfolio')
+        verbose_name_plural = _('portfolios')
+
+    def __str__(self):
+        return self.project_name
+
