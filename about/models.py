@@ -42,6 +42,7 @@ class ExperienceModel(models.Model):
     def __str__(self):
         return self.company
 
+
 class PortfolioModel(models.Model):
     project_name = models.CharField(max_length=100, verbose_name=_('project_name'))
     project_link = models.URLField(verbose_name=_('project_link'))
@@ -72,3 +73,17 @@ class ContactModel(models.Model):
         verbose_name = 'contact'
         verbose_name_plural = 'contacts'
 
+
+class SocialMediaModel(models.Model):
+    instagram = models.URLField(null=True, blank=True,)
+    telegram = models.URLField(null=True, blank=True)
+    youtube = models.URLField(null=True, blank=True)
+    github = models.URLField(null=True, blank=True)
+    linkedin = models.URLField(null=True, blank=True)
+    facebook = models.URLField(null=True, blank=True)
+    twitter = models.URLField(null=True, blank=True)
+    website = models.URLField(null=True, blank=True)
+    blog = models.URLField(null=True, blank=True)
+
+    def __str__(self):
+       return self.instagram

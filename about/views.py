@@ -3,7 +3,8 @@ from django.urls import reverse
 from django.views.generic import TemplateView, CreateView
 
 from .form import ContactModelForm
-from .models import EducationModel , ExperienceModel, PortfolioModel
+from .models import EducationModel, ExperienceModel, PortfolioModel, SocialMediaModel
+
 
 class MainPageView(TemplateView):
     template_name = 'about/index.html'
@@ -13,6 +14,8 @@ class MainPageView(TemplateView):
         context['education'] = EducationModel.objects.all()
         context['experience'] = ExperienceModel.objects.all()
         context['portfolio'] = PortfolioModel.objects.all()
+        context['social'] = SocialMediaModel.objects.all()
+
 
         return context
 
