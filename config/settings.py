@@ -28,6 +28,8 @@ INSTALLED_APPS = [
 
     'about',
     'blog',
+
+    'django_social_share'
 ]
 
 MIDDLEWARE = [

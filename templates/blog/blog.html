@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load social_share %}
+{% load static %}
+
+{% block content %}
+    <div id="content">
+        <div class="a-pagepiling full-page">
+            <div class="section pp-scrollable slide slide-blog">
+                <div class="slide-container pt-0">
+                    <div class="page-inner-content">
+                        <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
+                            <div class="container">
+                                <div class="banner-inner">
+                                    <h2 class="page-title">Blog Standard</h2>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index-light.html#About">Home</a></li>
+                                            <li class="breadcrumb-item active">Blog Standard</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="blog-inner mb-140 rmb-80">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="blog-item">
+                                            <img src="assets/images/blog/blog2.jpg" alt="Blog">
+                                            <ul class="blog-meta">
+                                                <li><i class="far fa-calendar-alt"></i> 25 March 2022</li>
+                                                <li><i class="far fa-comments"></i> <a href="#">Comments (10)</a></li>
+
+                                                <li><i class="far fa-eye"></i>1000</li>
+                                            </ul>
+                                            <h3><a href="blog-details.html">Everything Web Frameworks Solvowe Sithout
+                                                Them Part Designing Better Links</a></h3>
+                                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+                                                suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+                                                lacus vel facilisis. </p>
+                                            <a href="blog-details.html" class="read-more">read more <i
+                                                    class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="sidebar rmt-65">
+                                            <div class="widget search-widget">
+                                                <form action="#">
+                                                    <input type="search" placeholder="Search Here" required>
+                                                    <button type="submit"><i class="fas fa-search"></i></button>
+                                                </form>
+                                            </div>
+                                            <div class="widget category-widget">
+                                                <h4 class="widget-title">Category</h4>
+                                                <ul>
+                                                    <li><a href="blog.html">SAAS Landing</a> <span>(2)</span></li>
+                                                    <li><a href="blog.html">App Landing Pages</a> <span>(5)</span></li>
+                                                    <li><a href="blog.html">Web Design Solutions</a> <span>(5)</span>
+                                                    </li>
+                                                    <li><a href="blog.html">WordPress Development</a> <span>(3)</span>
+                                                    </li>
+                                                    <li><a href="blog.html">Digital Marketing</a> <span>(7)</span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="widget news-widget">
+                                                <h4 class="widget-title">Recent News</h4>
+                                                <div class="news-widget-wrap">
+                                                    <div class="news-widget-item">
+                                                        <img src="assets/images/blog/news-widget1.jpg" alt="News">
+                                                        <div class="content">
+                                                            <h6><a href="blog-details.html">Everything You Want To Know
+                                                                About Creating</a></h6>
+                                                            <span class="date"><i class="far fa-calendar-alt"></i> <a
+                                                                    href="blog-details.html">25 Feb 2022</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="news-widget-item">
+                                                        <img src="assets/images/blog/news-widget2.jpg" alt="News">
+                                                        <div class="content">
+                                                            <h6><a href="blog-details.html">You Want To Know Everything
+                                                                Creating</a></h6>
+                                                            <span class="date"><i class="far fa-calendar-alt"></i> <a
+                                                                    href="blog-details.html">25 Feb 2022</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="news-widget-item">
+                                                        <img src="assets/images/blog/news-widget3.jpg" alt="News">
+                                                        <div class="content">
+                                                            <h6><a href="blog-details.html">Creatin Everything You Want
+                                                                To Know Aboutg</a></h6>
+                                                            <span class="date"><i class="far fa-calendar-alt"></i> <a
+                                                                    href="blog-details.html">25 Feb 2022</a></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget tag-widget">
+                                                <h4 class="widget-title">Popular Tags</h4>
+                                                <div class="tag-clouds">
+                                                    <a href="blog.html">SAAS</a>
+                                                    <a href="blog.html">Web Design</a>
+                                                    <a href="blog.html">Graphics</a>
+                                                    <a href="blog.html">Development</a>
+                                                    <a href="blog.html">Landing Pages</a>
+                                                    <a href="blog.html">UX/UI Design</a>
+                                                    <a href="blog.html">WordPress</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-contact text-center mb-35">
+                                <div class="section-title mb-30 animate-element delay8 fadeInUp">
+                                    <h2>Stay Connected</h2>
+                                </div>
+                                <span class="country list-inline-item animate-element delay9 fadeInUp">Tashkent. Uzbekistan</span>
+                                <h3 class="animate-element delay6 fadeInUp"><a href="mailto:mexrojxon.dev@gmail.com">mexrojxon.dev@gmail.com</a>
+                                </h3>
+                                <a href="callto:+998903550427"
+                                   class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
+                                {% for link in social %}
+                                    <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
+                                        {% if link.github %}
+                                            <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
+                                        {% endif %}
+
+                                        {% if link.instagram %}
+                                            <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
+                                        {% endif %}
+
+                                        {% if link.telegram %}
+                                            <a href="{{ link.telegram }}"><i class="bi bi-telegram fs-25 "></i></a>
+                                        {% endif %}
+
+                                        {% if link.linkedin %}
+                                            <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
+                                        {% endif %}
+
+                                        {% if link.blog %}
+                                            <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
+                                        {% endif %}
+
+                                        {% if link.youtube %}
+                                            <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
+                                        {% endif %}
+
+                                        {% if link.twitter %}
+                                            <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="footer-bottom-shape">
+                            <img src="{% static '/images/contact/footer-bottom-shape.png' %}" alt="Shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
