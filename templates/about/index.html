@@ -424,7 +424,8 @@
                                                 <h2 class="slide-title animate-element delay6 fadeInUp">Estimate your
                                                     project? Let me know here.</h2>
                                             </div>
-                                            <form action="#" class="contact-form animate-element delay8 fadeInUp">
+                                            <form action="{% url 'about:contact' %}" method="POST" class="contact-form animate-element delay8 fadeInUp">
+                                                {% csrf_token %}
                                                 <div class="form-group">
                                                     <input type="text" id="name" name="name" class="form-control"
                                                            placeholder="What's your name?" required>

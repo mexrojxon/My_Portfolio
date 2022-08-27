@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.urls import reverse
+from django.views.generic import TemplateView, CreateView
+
+from .form import ContactModelForm
 from .models import EducationModel , ExperienceModel, PortfolioModel
 
 class MainPageView(TemplateView):
@@ -12,3 +15,11 @@ class MainPageView(TemplateView):
         context['portfolio'] = PortfolioModel.objects.all()
 
         return context
+
+class ContactView(CreateView):
+    form_class = ContactModelForm
+    template_name = 'about/index.html'
+
+    def get_success_url(self):
+        return reverse('about:main')
+
