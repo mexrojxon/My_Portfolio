@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'about',
     'blog',
 
-    'django_social_share'
+    'django_social_share',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
