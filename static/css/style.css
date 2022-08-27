@@ -2020,3 +2020,9 @@ blockquote .designation {
 .landing-preview-item .image:hover .theme-btn {
     opacity: 1;
 }
+
+.fs-25{
+    position: relative;
+    font-size: 30px;
+    top: -6px;
+}
