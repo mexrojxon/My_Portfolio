@@ -38,24 +38,23 @@
                                 <div class="blog-inner mb-140 rmb-80">
                                     <div class="row">
                                         <div class="col-lg-8">
-                                            <div class="blog-item">
-                                                <img src="assets/images/blog/blog2.jpg" alt="Blog">
-                                                <ul class="blog-meta">
-                                                    <li><i class="far fa-calendar-alt"></i> <a href="blog-details.html">25
-                                                        March 2022</a></li>
-                                                    <li><i class="far fa-comments"></i> <a href="#">Comments (10)</a>
-                                                    </li>
-                                                    <li><i class="far fa-eye"></i> 141</li>
-                                                </ul>
-                                                <h3><a href="blog-details.html">Everything Web Frameworks Solvowe
-                                                    Sithout Them Part Designing Better Links</a></h3>
-                                                <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                                                    ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-                                                    accumsan lacus vel facilisis. </p>
-                                                <a href="blog-details.html" class="read-more">read more <i
-                                                        class="fas fa-arrow-right"></i></a>
-                                            </div>
+                                            {% for post in post %}
+                                                <div class="blog-item">
+                                                    <img src="{{ blog.image.url }}" alt="{{ blog.title|truncatewords:'4' }}">
+                                                    <ul class="blog-meta">
+                                                        <li><i class="far fa-calendar-alt"></i> <a
+                                                                href="blog-details.html">{{ blog.created_at|date:'d, M, Y' }}</a></li>
+                                                        <li><i class="far fa-comments"></i> <a href="#">Comments
+                                                            (10)</a>
+                                                        </li>
+                                                        <li><i class="far fa-eye"></i> 141</li>
+                                                    </ul>
+                                                    <h3><a href="blog-details.html">{{ post.title }}</a></h3>
+                                                    <p>{{ post.description }}</p>
+                                                    <a href="blog-details.html" class="read-more">read more <i
+                                                            class="fas fa-arrow-right"></i></a>
+                                                </div>
+                                            {% endfor %}
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="sidebar rmt-65">
@@ -130,47 +129,48 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div class="footer-contact text-center mb-35">
-                                <div class="section-title mb-30 animate-element delay8 fadeInUp">
-                                    <h2>Stay Connected</h2>
-                                </div>
-                                <span class="country list-inline-item animate-element delay9 fadeInUp">Tashkent. Uzbekistan</span>
-                                <h3 class="animate-element delay6 fadeInUp"><a href="mailto:mexrojxon.dev@gmail.com">mexrojxon.dev@gmail.com</a>
-                                </h3>
-                                <a href="callto:+998903550427"
-                                   class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
-                                {% for link in social %}
-                                    <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
-                                        {% if link.github %}
-                                            <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
-                                        {% endif %}
-
-                                        {% if link.instagram %}
-                                            <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
-                                        {% endif %}
-
-                                        {% if link.telegram %}
-                                            <a href="{{ link.telegram }}"><i class="bi bi-telegram fs-25 "></i></a>
-                                        {% endif %}
-
-                                        {% if link.linkedin %}
-                                            <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
-                                        {% endif %}
-
-                                        {% if link.blog %}
-                                            <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
-                                        {% endif %}
-
-                                        {% if link.youtube %}
-                                            <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
-                                        {% endif %}
-
-                                        {% if link.twitter %}
-                                            <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
-                                        {% endif %}
+                                <div class="footer-contact text-center mb-35">
+                                    <div class="section-title mb-30 animate-element delay8 fadeInUp">
+                                        <h2>Stay Connected</h2>
                                     </div>
-                                {% endfor %}
-                            </div>
+                                    <span class="country list-inline-item animate-element delay9 fadeInUp">Tashkent. Uzbekistan</span>
+                                    <h3 class="animate-element delay6 fadeInUp"><a
+                                            href="mailto:mexrojxon.dev@gmail.com">mexrojxon.dev@gmail.com</a>
+                                    </h3>
+                                    <a href="callto:+998903550427"
+                                       class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
+                                    {% for link in social %}
+                                        <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
+                                            {% if link.github %}
+                                                <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.instagram %}
+                                                <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.telegram %}
+                                                <a href="{{ link.telegram }}"><i class="bi bi-telegram fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.linkedin %}
+                                                <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.blog %}
+                                                <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.youtube %}
+                                                <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.twitter %}
+                                                <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
 
                             <div class="footer-bottom-shape">
