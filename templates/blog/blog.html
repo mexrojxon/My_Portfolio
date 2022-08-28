@@ -40,17 +40,17 @@
                                         <div class="col-lg-8">
                                             {% for post in post %}
                                                 <div class="blog-item">
-                                                    <img src="{{ blog.image.url }}" alt="{{ blog.title|truncatewords:'4' }}">
+                                                    <img src="{{ post.image.url }}" alt="{{ post.title|truncatewords:'4' }}">
                                                     <ul class="blog-meta">
                                                         <li><i class="far fa-calendar-alt"></i> <a
-                                                                href="blog-details.html">{{ blog.created_at|date:'d, M, Y' }}</a></li>
+                                                                href="blog-details.html">{{ post.created_at|date:'d, M, Y' }}</a></li>
                                                         <li><i class="far fa-comments"></i> <a href="#">Comments
                                                             (10)</a>
                                                         </li>
                                                         <li><i class="far fa-eye"></i> 141</li>
                                                     </ul>
                                                     <h3><a href="blog-details.html">{{ post.title }}</a></h3>
-                                                    <p>{{ post.description }}</p>
+                                                    <p>{{ post.description|safe }}</p>
                                                     <a href="blog-details.html" class="read-more">read more <i
                                                             class="fas fa-arrow-right"></i></a>
                                                 </div>
