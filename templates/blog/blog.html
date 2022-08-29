@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load social_share %}
+{% load hitcount_tags %}
 {% load static %}
 
 {% block content %}
@@ -47,10 +48,10 @@
                                                         <li><i class="far fa-comments"></i> <a href="#">Comments
                                                             (10)</a>
                                                         </li>
-                                                        <li><i class="far fa-eye"></i> 141</li>
+                                                        <li><i class="far fa-eye"></i>{% get_hit_count for post %}</li>
                                                     </ul>
                                                     <h3><a href="blog-details.html">{{ post.title }}</a></h3>
-                                                    <p>{{ post.description|safe }}</p>
+                                                    <p>{{ post.description|safe|truncatewords:'27' }}</p>
                                                     <a href="blog-details.html" class="read-more">read more <i
                                                             class="fas fa-arrow-right"></i></a>
                                                 </div>
