@@ -18,10 +18,10 @@ class BlogListView(TemplateView):
 
         return context
 
+
 class BlogDetailView(HitCountDetailView):
     model = BlogPostModel
     template_name = 'blog/blog-detail.html'
     context_object_name = 'single_post'
     slug_field = 'slug'
     count_hit = True
-
