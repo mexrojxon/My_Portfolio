@@ -50,25 +50,19 @@
                                                 <div class="tag-clouds mb-10 mr-auto">
                                                     <b>Tags </b>
                                                     {% for tag in single_post.tag.all %}
-                                                        <a href="#"> {{ tag }}</a>
+                                                        <a href="#">{{ tag }}</a>
                                                     {% endfor %}
                                                 </div>
-                                            </div>
-                                            <div class="social-style-one mb-10">
-                                                <b>Share: </b>
-                                                <a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
-                                                <a href="https://www.instagram.com/"><i
-                                                        class="fab fa-instagram"></i></a>
+                                                <div class="social-style-one mb-10">
+                                                    <b>Share: </b>
+                                                <a>{% post_to_telegram object_or_url ""%}</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="comments pb-15">
-                                        <h3 class="comment-title mb-55">Peopel Comments</h3>
+                                        <h3 class="comment-title mb-55 pt-5">Peopel Comments</h3>
                                         <div class="comment-item wow fadeInUp delay-0-2s">
-                                            <div class="author-image">
-                                                <img src="assets/images/blog/comment-author-3.jpg" alt="Author">
-                                            </div>
                                             <div class="comment-details">
                                                 <div class="name-date">
                                                     <h5>John F. Medina</h5>
@@ -77,40 +71,17 @@
                                                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                                                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                                                     quae abillo inventore veritatis</p>
-                                                <a href="blog-details.html" class="reply">Reply <i
-                                                        class="fas fa-long-arrow-alt-right"></i></a>
                                             </div>
                                         </div>
-                                        <div class="comment-item child-comment wow fadeInUp delay-0-4s">
-                                            <div class="author-image">
-                                                <img src="assets/images/blog/comment-author-2.jpg" alt="Author">
-                                            </div>
+                                        <div class="comment-item wow fadeInUp delay-0-2s">
                                             <div class="comment-details">
                                                 <div class="name-date">
-                                                    <h5>Grace L. Freeman</h5>
-                                                    <span class="date">25 Feb 2022</span>
-                                                </div>
-                                                <p>Perspiciatis unde omnis iste natus error sit voluptatem
-                                                    accusantium doloremq totam rem aperiam, eaque ipsa quae abillo
-                                                    inventore veritatis</p>
-                                                <a href="blog-details.html" class="reply">Reply <i
-                                                        class="fas fa-long-arrow-alt-right"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="comment-item wow fadeInUp delay-0-6s">
-                                            <div class="author-image">
-                                                <img src="assets/images/blog/comment-author-1.jpg" alt="Author">
-                                            </div>
-                                            <div class="comment-details">
-                                                <div class="name-date">
-                                                    <h5>Alexzeder Alex</h5>
+                                                    <h5>John F. Medina</h5>
                                                     <span class="date">25 Feb 2022</span>
                                                 </div>
                                                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                                                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                                                     quae abillo inventore veritatis</p>
-                                                <a href="blog-details.html" class="reply">Reply <i
-                                                        class="fas fa-long-arrow-alt-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -145,72 +116,6 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col-lg-4">
-                                    <div class="sidebar rmt-65">
-                                        <div class="widget search-widget">
-                                            <form action="#">
-                                                <input type="search" placeholder="Search Here" required>
-                                                <button type="submit"><i class="fas fa-search"></i></button>
-                                            </form>
-                                        </div>
-                                        <div class="widget category-widget">
-                                            <h4 class="widget-title">Category</h4>
-                                            <ul>
-                                                <li><a href="blog.html">SAAS Landing</a> <span>(2)</span></li>
-                                                <li><a href="blog.html">App Landing Pages</a> <span>(5)</span></li>
-                                                <li><a href="blog.html">Web Design Solutions</a> <span>(5)</span>
-                                                </li>
-                                                <li><a href="blog.html">WordPress Development</a> <span>(3)</span>
-                                                </li>
-                                                <li><a href="blog.html">Digital Marketing</a> <span>(7)</span></li>
-                                            </ul>
-                                        </div>
-                                        <div class="widget news-widget">
-                                            <h4 class="widget-title">Recent News</h4>
-                                            <div class="news-widget-wrap">
-                                                <div class="news-widget-item">
-                                                    <img src="assets/images/blog/news-widget1.jpg" alt="News">
-                                                    <div class="content">
-                                                        <h6><a href="blog-details.html">Everything You Want To Know
-                                                            About Creating</a></h6>
-                                                        <span class="date"><i class="far fa-calendar-alt"></i> <a
-                                                                href="blog-details.html">25 Feb 2022</a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="news-widget-item">
-                                                    <img src="assets/images/blog/news-widget2.jpg" alt="News">
-                                                    <div class="content">
-                                                        <h6><a href="blog-details.html">You Want To Know Everything
-                                                            Creating</a></h6>
-                                                        <span class="date"><i class="far fa-calendar-alt"></i> <a
-                                                                href="blog-details.html">25 Feb 2022</a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="news-widget-item">
-                                                    <img src="assets/images/blog/news-widget3.jpg" alt="News">
-                                                    <div class="content">
-                                                        <h6><a href="blog-details.html">Creatin Everything You Want
-                                                            To Know Aboutg</a></h6>
-                                                        <span class="date"><i class="far fa-calendar-alt"></i> <a
-                                                                href="blog-details.html">25 Feb 2022</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="widget tag-widget">
-                                            <h4 class="widget-title">Popular Tags</h4>
-                                            <div class="tag-clouds">
-                                                <a href="blog.html">SAAS</a>
-                                                <a href="blog.html">Web Design</a>
-                                                <a href="blog.html">Graphics</a>
-                                                <a href="blog.html">Development</a>
-                                                <a href="blog.html">Landing Pages</a>
-                                                <a href="blog.html">UX/UI Design</a>
-                                                <a href="blog.html">WordPress</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="footer-contact text-center mb-35">
@@ -230,7 +135,7 @@
                         </div>
                     </div>
                     <div class="footer-bottom-shape">
-                        {#                            <img src="{% url 'images/contact/footer-bottom-shape.png' %}" alt="Shape">#}
+                        <img src="{% static 'images/contact/footer-bottom-shape.png' %}" alt="Shape">
                     </div>
                 </div>
             </div>

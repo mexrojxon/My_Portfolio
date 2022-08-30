@@ -67,3 +67,22 @@ class BlogPostModel(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         return super(BlogPostModel, self).save(*args, **kwargs)
+
+class CommentModel(models.Model):
+    post = models.ForeignKey(
+        BlogPostModel,
+        on_delete=models.CASCADE,
+        related_name='comments',
+        verbose_name=_('post')
+    )
+    name = models.CharField(max_length=64, verbose_name=_('name'))
+    email = models.EmailField(verbose_name=_('email'))
+    comment = models.TextField(verbose_name=_('comment'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
+
+    class Meta:
+        verbose_name = 'comment'
+        verbose_name_plural = 'comments'
+
+    def __str__(self):
+        return self.name
