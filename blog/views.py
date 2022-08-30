@@ -25,3 +25,5 @@ class BlogDetailView(HitCountDetailView):
     context_object_name = 'single_post'
     slug_field = 'slug'
     count_hit = True
+
+
