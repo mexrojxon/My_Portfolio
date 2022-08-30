@@ -68,6 +68,7 @@ class BlogPostModel(models.Model):
             self.slug = slugify(self.title)
         return super(BlogPostModel, self).save(*args, **kwargs)
 
+
 class CommentModel(models.Model):
     post = models.ForeignKey(
         BlogPostModel,

@@ -1,9 +1,11 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.shortcuts import render, get_object_or_404, reverse
+from django.urls import reverse
+from django.views.generic import TemplateView, ListView, CreateView
 from hitcount.models import HitCount
 from hitcount.views import HitCountDetailView
 
 from about.models import SocialMediaModel
+from blog.form import CommentModelForm
 from blog.models import BlogPostModel
 
 
@@ -27,3 +29,12 @@ class BlogDetailView(HitCountDetailView):
     count_hit = True
 
 
+class BlogCommentView(CreateView):
+    form_class = CommentModelForm
+
+    def form_valid(self, form):
+        form.instance.post = get_object_or_404(BlogPostModel, pk=self.kwargs.get('slug'))
+        return super(BlogCommentView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('blog:detail')
