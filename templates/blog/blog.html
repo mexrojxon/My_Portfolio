@@ -24,10 +24,10 @@
                             <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
                                 <div class="container">
                                     <div class="banner-inner">
-                                        <h2 class="page-title">Here I write my personal thoughts and articles</h2>
+                                        <h2 class="page-title">Bu yerda men shaxsiy fikrlarimni va maqolalarimni yozaman</h2>
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Home</a>
+                                                <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Bosh sahifa</a>
                                                 </li>
                                                 <li class="breadcrumb-item active">Blog</li>
                                             </ol>
@@ -45,31 +45,32 @@
                                                          alt="{{ post.title|truncatewords:'4' }}">
                                                     <ul class="blog-meta">
                                                         <li><i class="far fa-calendar-alt"></i> <a
-                                                                href="blog-details.html">{{ post.created_at|date:'d, M, Y' }}</a>
+                                                                href="#">{{ post.created_at|date:'d M Y' }}</a>
                                                         </li>
-                                                        <li><i class="far fa-comments"></i> <a href="#">Comments
-                                                            (10)</a>
+                                                        <li><i class="far fa-comments"></i> <a href="#">Izohlar
+                                                            ({{ post.comments.all.count }})</a>
                                                         </li>
                                                         <li><i class="far fa-eye"></i>{% get_hit_count for post %}</li>
                                                     </ul>
                                                     <h3><a href="{% url "blog:detail" post.pk %}">{{ post.title }}</a>
                                                     </h3>
                                                     <p>{{ post.description|safe|truncatewords:'27' }}</p>
-                                                    <a href="{% url "blog:detail" post.pk %}" class="read-more">read more <i
+                                                    <a href="{% url "blog:detail" post.pk %}" class="read-more">Batafsil <i
                                                             class="fas fa-arrow-right"></i></a>
                                                 </div>
+                                                <hr>
                                             {% endfor %}
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="sidebar rmt-65">
                                                 <div class="widget search-widget">
                                                     <form action="#">
-                                                        <input type="search" placeholder="Search Here" required>
+                                                        <input type="search" placeholder="Izlash" required>
                                                         <button type="submit"><i class="fas fa-search"></i></button>
                                                     </form>
                                                 </div>
                                                 <div class="widget category-widget">
-                                                    <h4 class="widget-title">Category</h4>
+                                                    <h4 class="widget-title">Turkumlar</h4>
                                                     <ul>
                                                         <li><a href="blog.html">SAAS Landing</a> <span>(2)</span></li>
                                                         <li><a href="blog.html">App Landing Pages</a> <span>(5)</span>
@@ -83,7 +84,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="widget news-widget">
-                                                    <h4 class="widget-title">Recent News</h4>
+                                                    <h4 class="widget-title">Eng ko'p o'qilgan</h4>
                                                     <div class="news-widget-wrap">
                                                         <div class="news-widget-item">
                                                             <img src="assets/images/blog/news-widget1.jpg" alt="News">
@@ -118,7 +119,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="widget tag-widget">
-                                                    <h4 class="widget-title">Popular Tags</h4>
+                                                    <h4 class="widget-title">Taglar</h4>
                                                     <div class="tag-clouds">
                                                         <a href="blog.html">SAAS</a>
                                                         <a href="blog.html">Web Design</a>
@@ -135,7 +136,7 @@
                                 </div>
                                 <div class="footer-contact text-center mb-35">
                                     <div class="section-title mb-30 animate-element delay8 fadeInUp">
-                                        <h2>Stay Connected</h2>
+                                        <h2>Aloqada bo'ling</h2>
                                     </div>
                                     <span class="country list-inline-item animate-element delay9 fadeInUp">Tashkent. Uzbekistan</span>
                                     <h3 class="animate-element delay6 fadeInUp"><a

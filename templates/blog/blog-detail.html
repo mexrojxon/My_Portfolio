@@ -23,7 +23,7 @@
                                     <h2 class="page-title">Blog Single</h2>
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="{% url 'blog:list' %}">Barcha maqolalar</a></li>
                                             <li class="breadcrumb-item active">{{ single_post.title }}</li>
                                         </ol>
                                     </nav>
@@ -40,7 +40,7 @@
                                                 <li><i class="far fa-calendar-alt"></i> <a
                                                         href="#">{{ single_post.created_at|date:'d M Y' }}</a>
                                                 </li>
-                                                <li><i class="far fa-comments"></i> <a href="#kamment">Comments
+                                                <li><i class="far fa-comments"></i> <a href="#kamment">Izohlar
                                                     ({{ single_post.comments.all.count }})</a></li>
                                                 <li><i class="far fa-eye"></i>{% get_hit_count for single_post %}</li>
                                             </ul>
@@ -49,44 +49,21 @@
 
                                             <div class="blog-footer d-flex flex-wrap align-items-center pt-25">
                                                 <div class="tag-clouds mb-10 mr-auto">
-                                                    <b>Tags </b>
+                                                    <b>Teglar </b>
                                                     {% for tag in single_post.tag.all %}
                                                         <a href="#">{{ tag }}</a>
                                                     {% endfor %}
                                                 </div>
                                                 <div class="social-style-one mb-10">
-                                                    <b>Share: </b>
+                                                    <b>Ulashmoq: </b>
                                                     <a>{% post_to_telegram object_or_url "" %}</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="blog__details__btns">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                {% if post.get_previous_by_created_at %}
-                                                    <a href="{% url 'blogs:detail' pk=single_post.get_previous_by_created_at.id %}"
-                                                       class="blog__details__btns__item">
-                                                        <p><span class="arrow_left"></span> Previous Pod</p>
-                                                        <h5>{{ single_post.get_previous_by_created_at.title }}</h5>
-                                                    </a>
-                                                {% endif %}
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                                {% if post.get_next_by_created_at %}
-                                                    <a href="{% url 'blogs:detail' pk=single_post.get_next_by_created_at.id %}"
-                                                       class="blog__details__btns__item blog__details__btns__item--next">
-                                                        <p>Next Pod <span class="arrow_right"></span></p>
-                                                        <h5>{{ single_post.get_next_by_created_at.title }}</h5>
-                                                    </a>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div name="kamment" class="comments pb-10">
                                         {% if single_post.comments.all %}
-                                            <h3 class="comment-title mb-30 pt-40">People Comments</h3>
+                                            <h3 class="comment-title mb-30 pt-40">Barcha izohlar</h3>
                                         {% endif %}
                                         {% for comment in single_post.comments.all %}
                                             <div class="comment-item wow fadeInUp delay-0-2s">
@@ -102,24 +79,24 @@
                                         <form id="comment-form" class="comment-form"
                                               action="{% url 'blog:comment' pk=single_post.pk %}" method="POST">
                                             {% csrf_token %}
-                                            <h3 class="comment-title">Leave a Reply</h3>
+                                            <h3 class="comment-title">Izoh qoldiring</h3>
                                             <div class="row clearfix">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <input type="text" id="name" name="name" class="form-control"
-                                                               placeholder="Full Name" required="">
+                                                               placeholder="Ismingiz kiriting" required="">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <input type="email" id="email" name="email" class="form-control"
-                                                               placeholder="Email Address" required="">
+                                                               placeholder="Email manzilingizni kiriting" required="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <textarea name="comment" id="comment" rows="5"
-                                                                  class="form-control" placeholder="Write Message"
+                                                                  class="form-control" placeholder="Izohingizni yozing"
                                                                   required=""></textarea>
                                                     </div>
                                                 </div>
