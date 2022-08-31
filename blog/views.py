@@ -6,7 +6,7 @@ from hitcount.views import HitCountDetailView
 
 from about.models import SocialMediaModel
 from blog.form import CommentModelForm
-from blog.models import BlogPostModel
+from blog.models import BlogPostModel, CategoryModel
 
 
 class BlogListView(TemplateView):
@@ -17,6 +17,7 @@ class BlogListView(TemplateView):
         context = super(BlogListView, self, **kwargs).get_context_data()
         context['post'] = BlogPostModel.objects.all().order_by('-id')
         context['social'] = SocialMediaModel.objects.all()
+        context['categories'] = CategoryModel.objects.all()
 
         return context
 

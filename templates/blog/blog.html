@@ -61,8 +61,8 @@
                                                 <hr>
                                             {% endfor %}
                                         </div>
-                                        <div class="col-lg-4">
-                                            <div class="sidebar rmt-65">
+                                        <div class="col-lg-4 ">
+                                            <div class="sidebar rmt-65 sticy-bar pt-4">
                                                 <div class="widget search-widget">
                                                     <form action="#">
                                                         <input type="search" placeholder="Izlash" required>
@@ -72,15 +72,9 @@
                                                 <div class="widget category-widget">
                                                     <h4 class="widget-title">Turkumlar</h4>
                                                     <ul>
-                                                        <li><a href="blog.html">SAAS Landing</a> <span>(2)</span></li>
-                                                        <li><a href="blog.html">App Landing Pages</a> <span>(5)</span>
-                                                        </li>
-                                                        <li><a href="blog.html">Web Design Solutions</a>
-                                                            <span>(5)</span></li>
-                                                        <li><a href="blog.html">WordPress Development</a>
-                                                            <span>(3)</span></li>
-                                                        <li><a href="blog.html">Digital Marketing</a> <span>(7)</span>
-                                                        </li>
+                                                        {% for category in categories %}
+                                                            <li><a href="blog.html">{{ category.category }}</a> <span>({{ category.post.all.count }})</span></li>
+                                                        {% endfor %}
                                                     </ul>
                                                 </div>
                                                 <div class="widget news-widget">
