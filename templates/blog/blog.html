@@ -24,10 +24,12 @@
                             <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
                                 <div class="container">
                                     <div class="banner-inner">
-                                        <h2 class="page-title">Bu yerda men shaxsiy fikrlarimni va maqolalarimni yozaman</h2>
+                                        <h2 class="page-title">Bu yerda men shaxsiy fikrlarimni va maqolalarimni
+                                            yozaman</h2>
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Bosh sahifa</a>
+                                                <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Bosh
+                                                    sahifa</a>
                                                 </li>
                                                 <li class="breadcrumb-item active">Blog</li>
                                             </ol>
@@ -55,26 +57,35 @@
                                                     <h3><a href="{% url "blog:detail" post.pk %}">{{ post.title }}</a>
                                                     </h3>
                                                     <p>{{ post.description|safe|truncatewords:'27' }}</p>
-                                                    <a href="{% url "blog:detail" post.pk %}" class="read-more">Batafsil <i
-                                                            class="fas fa-arrow-right"></i></a>
+                                                    <a href="{% url "blog:detail" post.pk %}" class="read-more">Batafsil
+                                                        <i
+                                                                class="fas fa-arrow-right"></i></a>
                                                 </div>
                                                 <hr>
                                             {% endfor %}
                                         </div>
                                         <div class="col-lg-4 ">
-                                            <div class="sidebar rmt-65 sticy-bar pt-4">
+                                            <div class="sidebar rmt-65  pt-4 sticky-bar">
                                                 <div class="widget search-widget">
-                                                    <form action="#">
-                                                        <input type="search" placeholder="Izlash" required>
+                                                    <form action="">
+                                                        <input  type="search"
+                                                               placeholder="Izlash" required>
                                                         <button type="submit"><i class="fas fa-search"></i></button>
                                                     </form>
                                                 </div>
                                                 <div class="widget category-widget">
                                                     <h4 class="widget-title">Turkumlar</h4>
                                                     <ul>
-                                                        {% for category in categories %}
-                                                            <li><a href="blog.html">{{ category.category }}</a> <span>({{ category.post.all.count }})</span></li>
-                                                        {% endfor %}
+{#                                                        {% for category in categories %}#}
+{#                                                            <li>#}
+{#                                                                <a href="{{ request.GET.cat }}">{{ category.category }}</a>#}
+{#                                                                <span>({{ category.post.all.count }})</span></li>#}
+{#                                                        {% endfor %}#}
+                                                        <li><a href="blog.html">SAAS Landing</a> <span>(2)</span></li>
+                                                        <li><a href="blog.html">App Landing Pages</a> <span>(5)</span></li>
+                                                        <li><a href="blog.html">Web Design Solutions</a> <span>(5)</span></li>
+                                                        <li><a href="blog.html">WordPress Development</a> <span>(3)</span></li>
+                                                        <li><a href="blog.html">Digital Marketing</a> <span>(7)</span></li>
                                                     </ul>
                                                 </div>
                                                 <div class="widget news-widget">

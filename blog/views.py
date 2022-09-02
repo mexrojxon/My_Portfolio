@@ -21,6 +21,19 @@ class BlogListView(TemplateView):
 
         return context
 
+    def get_queryset(self):
+        qs = BlogPostModel.objects.all()
+        q = self.request.GET.get('q')
+        if q:
+            qs = qs.filter(name__icontains=q)
+            return qs
+
+        cat = self.request.GET.get('cat')
+        if cat:
+            qs = qs.filter(category_id=cat)
+
+        return qs
+
 
 class BlogDetailView(HitCountDetailView):
     model = BlogPostModel
