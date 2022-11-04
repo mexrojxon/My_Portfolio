@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <header id="header" class="header">
+        <div class="container-fluid">
+            <div class="brand">
+                <a href="{% url 'about:main' %}" class="brand-name"><b>Mexroj</b> Nizomov</a>
+            </div>
+        </div>
+    </header>
+    <div id="content">
+        <div class="a-pagepiling full-page">
+            <div class="section pp-scrollable slide slide-blog">
+                <div class="slide-container pt-0">
+                    <div class="page-inner-content">
+                        <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
+                            <div class="container">
+                                <div class="banner-inner">
+                                    <h3 class="fs-25">Error 404</h3>
+                                    <h3 class="fs-25">Sahifa topilmadi ☹️ </h3>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Bosh sahifa</a></li>
+                                            <li class="breadcrumb-item "><a href="{% url 'blog:list' %}">Blog</a></li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-bottom-shape">
+                            <img src="{% static 'images/contact/footer-bottom-shape.png' %}" alt="Shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -26,3 +26,6 @@ class ContactView(CreateView):
     def get_success_url(self):
         return reverse('about:main')
 
+
+def error_404(request, exception):
+    return render(request, 'about/error.html')
