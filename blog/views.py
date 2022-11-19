@@ -3,13 +3,15 @@ from django.urls import reverse
 from django.views.generic import TemplateView, ListView, CreateView
 from hitcount.models import HitCount
 from hitcount.views import HitCountDetailView
+from django.db.models import Q
 
 from about.models import SocialMediaModel
 from blog.form import CommentModelForm
-from blog.models import BlogPostModel, CategoryModel
+from blog.models import BlogPostModel, CategoryModel, TagModel
 
 
-class BlogListView(TemplateView):
+class BlogListView(ListView):
+    model = BlogPostModel
     template_name = 'blog/blog.html'
     count_hit = True
 
@@ -18,6 +20,11 @@ class BlogListView(TemplateView):
         context['post'] = BlogPostModel.objects.all().order_by('-id')
         context['social'] = SocialMediaModel.objects.all()
         context['categories'] = CategoryModel.objects.all()
+        context['tags'] = TagModel.objects.all()
+        context['q'] = self.request.GET.get('q', '')
+        context.update({
+            'popular_posts': BlogPostModel.objects.order_by('-hit_count_generic__hits')[:3],
+        })
 
         return context
 
@@ -25,13 +32,13 @@ class BlogListView(TemplateView):
         qs = BlogPostModel.objects.all()
         q = self.request.GET.get('q')
         if q:
-            qs = qs.filter(name__icontains=q)
+            qs = qs.filter(Q(title__icontains=q) | Q(description__icontains=q))
             return qs
+        qs = BlogPostModel.objects.order_by('-pk')
 
-        cat = self.request.GET.get('cat')
-        if cat:
-            qs = qs.filter(category_id=cat)
-
+        category = self.request.GET.get('cat')
+        if category:
+            return qs.filter(category_id=category)
         return qs
 
 
@@ -41,6 +48,7 @@ class BlogDetailView(HitCountDetailView):
     context_object_name = 'single_post'
     slug_field = 'slug'
     count_hit = True
+    social = SocialMediaModel.objects.all()
 
 
 class BlogCommentView(CreateView):

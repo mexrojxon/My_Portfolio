@@ -120,11 +120,37 @@
                                 </h3>
                                 <a href="callto:+998903550427"
                                    class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
-                                <div class="social-style-two mt-25 animate-element delay11 fadeI nUp">
-                                    <a href="#"><img src="assets/images/contact/social-dribbble.png" alt="Social"></a>
-                                    <a href="#"><img src="assets/images/contact/social-behance.png" alt="Social"></a>
-                                    <a href="#"><img src="assets/images/contact/social-instagram.png" alt="Social"></a>
-                                </div>
+                                {% for link in social %}
+                                        <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
+                                            {% if link.github %}
+                                                <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.instagram %}
+                                                <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.telegram %}
+                                                <a href="{{ link.telegram }}"><i class="bi bi-telegram fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.linkedin %}
+                                                <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.blog %}
+                                                <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.youtube %}
+                                                <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.twitter %}
+                                                <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
                             </div>
                         </div>
                         <div class="footer-bottom-shape">

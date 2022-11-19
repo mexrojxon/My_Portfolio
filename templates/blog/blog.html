@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load social_share %}
 {% load hitcount_tags %}
 {% load static %}
@@ -67,8 +68,8 @@
                                         <div class="col-lg-4 ">
                                             <div class="sidebar rmt-65  pt-4 sticky-bar">
                                                 <div class="widget search-widget">
-                                                    <form action="">
-                                                        <input  type="search"
+                                                    <form action="{% url 'blog:list' %}" method="GET">
+                                                        <input value="{{ request.GET.q }}" type="search" name="q"
                                                                placeholder="Izlash" required>
                                                         <button type="submit"><i class="fas fa-search"></i></button>
                                                     </form>
@@ -76,63 +77,37 @@
                                                 <div class="widget category-widget">
                                                     <h4 class="widget-title">Turkumlar</h4>
                                                     <ul>
-{#                                                        {% for category in categories %}#}
-{#                                                            <li>#}
-{#                                                                <a href="{{ request.GET.cat }}">{{ category.category }}</a>#}
-{#                                                                <span>({{ category.post.all.count }})</span></li>#}
-{#                                                        {% endfor %}#}
-                                                        <li><a href="blog.html">SAAS Landing</a> <span>(2)</span></li>
-                                                        <li><a href="blog.html">App Landing Pages</a> <span>(5)</span></li>
-                                                        <li><a href="blog.html">Web Design Solutions</a> <span>(5)</span></li>
-                                                        <li><a href="blog.html">WordPress Development</a> <span>(3)</span></li>
-                                                        <li><a href="blog.html">Digital Marketing</a> <span>(7)</span></li>
+                                                        {% for category in categories %}
+                                                            <li>
+                                                                <a href="{{ request.GET.cat }}">{{ category.category }}</a>
+                                                                <span>({{ category.post.all.count }})</span></li>
+                                                        {% endfor %}
                                                     </ul>
                                                 </div>
                                                 <div class="widget news-widget">
                                                     <h4 class="widget-title">Eng ko'p o'qilgan</h4>
                                                     <div class="news-widget-wrap">
-                                                        <div class="news-widget-item">
-                                                            <img src="assets/images/blog/news-widget1.jpg" alt="News">
-                                                            <div class="content">
-                                                                <h6><a href="blog-details.html">Everything You Want To
-                                                                    Know About Creating</a></h6>
-                                                                <span class="date"><i
-                                                                        class="far fa-calendar-alt"></i> <a
-                                                                        href="blog-details.html">25 Feb 2022</a></span>
+                                                        {% for popular in popular_posts %}
+                                                            <div class="news-widget-item">
+                                                                <img style="width:120px; " src="{{ popular.image.url }}"
+                                                                     alt="News">
+                                                                <div class="content">
+                                                                    <h6>
+                                                                        <a href="{% url "blog:detail" popular.pk %}">{{ popular.title }}</a>
+                                                                    </h6>
+                                                                    <span class="date"><i
+                                                                            class="far fa-calendar-alt"></i>{{ popular.created_at|date:'d M Y' }}</span>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="news-widget-item">
-                                                            <img src="assets/images/blog/news-widget2.jpg" alt="News">
-                                                            <div class="content">
-                                                                <h6><a href="blog-details.html">You Want To Know
-                                                                    Everything Creating</a></h6>
-                                                                <span class="date"><i
-                                                                        class="far fa-calendar-alt"></i> <a
-                                                                        href="blog-details.html">25 Feb 2022</a></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="news-widget-item">
-                                                            <img src="assets/images/blog/news-widget3.jpg" alt="News">
-                                                            <div class="content">
-                                                                <h6><a href="blog-details.html">Creatin Everything You
-                                                                    Want To Know Aboutg</a></h6>
-                                                                <span class="date"><i
-                                                                        class="far fa-calendar-alt"></i> <a
-                                                                        href="blog-details.html">25 Feb 2022</a></span>
-                                                            </div>
-                                                        </div>
+                                                        {% endfor %}
                                                     </div>
                                                 </div>
                                                 <div class="widget tag-widget">
                                                     <h4 class="widget-title">Taglar</h4>
                                                     <div class="tag-clouds">
-                                                        <a href="blog.html">SAAS</a>
-                                                        <a href="blog.html">Web Design</a>
-                                                        <a href="blog.html">Graphics</a>
-                                                        <a href="blog.html">Development</a>
-                                                        <a href="blog.html">Landing Pages</a>
-                                                        <a href="blog.html">UX/UI Design</a>
-                                                        <a href="blog.html">WordPress</a>
+                                                        {% for tag in tags %}
+                                                            <a href="blog.html">{{ tag.title }}</a>
+                                                        {% endfor %}
                                                     </div>
                                                 </div>
                                             </div>

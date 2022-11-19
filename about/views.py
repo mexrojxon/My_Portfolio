@@ -29,3 +29,4 @@ class ContactView(CreateView):
 
 def error_404(request, exception):
     return render(request, 'about/error.html')
+
