@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView, CreateView
@@ -15,6 +16,8 @@ class BlogListView(ListView):
     template_name = 'blog/blog.html'
     count_hit = True
 
+
+
     def get_context_data(self, **kwargs):
         context = super(BlogListView, self, **kwargs).get_context_data()
         context['post'] = BlogPostModel.objects.all().order_by('-id')
@@ -29,17 +32,21 @@ class BlogListView(ListView):
         return context
 
     def get_queryset(self):
-        qs = BlogPostModel.objects.all()
-        q = self.request.GET.get('q')
-        if q:
-            qs = qs.filter(Q(title__icontains=q) | Q(description__icontains=q))
-            return qs
         qs = BlogPostModel.objects.order_by('-pk')
-
-        category = self.request.GET.get('cat')
-        if category:
-            return qs.filter(category_id=category)
+        tag = self.request.GET.get('tag')
+        if tag:
+            return qs.filter(tags__title=tag)
         return qs
+
+
+        # qs = BlogPostModel.objects.all()
+        # q = self.request.GET.get('q')
+        # if q:
+        #     qs = qs.filter(Q(title__icontains=q) | Q(description__icontains=q))
+        #     return qs
+        # qs = BlogPostModel.objects.order_by('-pk')
+        #
+        # return qs
 
 
 class BlogDetailView(HitCountDetailView):

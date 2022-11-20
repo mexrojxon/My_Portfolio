@@ -8,7 +8,7 @@
     <header id="header" class="header">
         <div class="container-fluid">
             <div class="brand">
-                <a href="{% url 'about:main' %}" class="brand-name"><b>Mexroj</b> Nizomov</a>
+                <a href="{% url 'about:main' %}" class="brand-name"><b>NIZOM</b>OFF</a>
             </div>
         </div>
     </header>
@@ -20,7 +20,8 @@
                         <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
                             <div class="container">
                                 <div class="banner-inner">
-                                    <h2 class="page-title">Blog Single</h2>
+                                    <h2 class="page-title">{{single_post.category}} ga doir maqolalar ->
+                                        {{single_post.id}}</h2>
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{% url 'blog:list' %}">Barcha maqolalar</a></li>
@@ -61,54 +62,54 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div name="kamment" class="comments pb-10">
-                                        {% if single_post.comments.all %}
-                                            <h3 class="comment-title mb-30 pt-40">Barcha izohlar</h3>
-                                        {% endif %}
-                                        {% for comment in single_post.comments.all %}
-                                            <div class="comment-item wow fadeInUp delay-0-2s">
-                                                <div class="comment-details">
-                                                    <div class="name-date">
-                                                        <h5>{{ comment.name }}</h5>
-                                                        <span class="date">{{ comment.created_at|date:'d M Y' }}</span>
-                                                    </div>
-                                                    <p>{{ comment.comment }}</p>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-                                        <form id="comment-form" class="comment-form"
-                                              action="{% url 'blog:comment' pk=single_post.pk %}" method="POST">
-                                            {% csrf_token %}
-                                            <h3 class="comment-title">Izoh qoldiring</h3>
-                                            <div class="row clearfix">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <input type="text" id="name" name="name" class="form-control"
-                                                               placeholder="Ismingiz kiriting" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <input type="email" id="email" name="email" class="form-control"
-                                                               placeholder="Email manzilingizni kiriting" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <textarea name="comment" id="comment" rows="5"
-                                                                  class="form-control" placeholder="Izohingizni yozing"
-                                                                  required=""></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group mb-0">
-                                                        <button class="theme-btn" type="submit">send message <i
-                                                                class="fas fa-arrow-right"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+<!--                                    <div name="kamment" class="comments pb-10">-->
+<!--                                        {% if single_post.comments.all %}-->
+<!--                                            <h3 class="comment-title mb-30 pt-40">Barcha izohlar</h3>-->
+<!--                                        {% endif %}-->
+<!--                                        {% for comment in single_post.comments.all %}-->
+<!--                                            <div class="comment-item wow fadeInUp delay-0-2s">-->
+<!--                                                <div class="comment-details">-->
+<!--                                                    <div class="name-date">-->
+<!--                                                        <h5>{{ comment.name }}</h5>-->
+<!--                                                        <span class="date">{{ comment.created_at|date:'d M Y' }}</span>-->
+<!--                                                    </div>-->
+<!--                                                    <p>{{ comment.comment }}</p>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        {% endfor %}-->
+<!--                                        <form id="comment-form" class="comment-form"-->
+<!--                                              action="{% url 'blog:comment' pk=single_post.pk %}" method="POST">-->
+<!--                                            {% csrf_token %}-->
+<!--                                            <h3 class="comment-title">Izoh qoldiring</h3>-->
+<!--                                            <div class="row clearfix">-->
+<!--                                                <div class="col-sm-6">-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <input type="text" id="name" name="name" class="form-control"-->
+<!--                                                               placeholder="Ismingiz kiriting" required="">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-sm-6">-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <input type="email" id="email" name="email" class="form-control"-->
+<!--                                                               placeholder="Email manzilingizni kiriting" required="">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-md-12">-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <textarea name="comment" id="comment" rows="5"-->
+<!--                                                                  class="form-control" placeholder="Izohingizni yozing"-->
+<!--                                                                  required=""></textarea>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-md-12">-->
+<!--                                                    <div class="form-group mb-0">-->
+<!--                                                        <button class="theme-btn" type="submit">send message <i-->
+<!--                                                                class="fas fa-arrow-right"></i></button>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
                             <div class="footer-contact text-center mb-35">
