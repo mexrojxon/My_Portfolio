@@ -106,7 +106,7 @@
                                                 <h4 class="widget-title">Taglar</h4>
                                                 <div class="tag-clouds">
                                                     {% for tag in tags %}
-                                                    <a href="{% url 'blog:list' %}?tag={{ tag }}">{{ tag.title }}</a>
+                                                        <a href="{% url 'blog:list' %}?tag={{ tag }}">{{ tag.title }}</a>
                                                     {% endfor %}
                                                 </div>
                                             </div>

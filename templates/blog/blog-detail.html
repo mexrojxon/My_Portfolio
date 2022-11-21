@@ -52,7 +52,7 @@
                                                 <div class="tag-clouds mb-10 mr-auto">
                                                     <b>Teglar </b>
                                                     {% for tag in single_post.tag.all %}
-                                                        <a href="#">{{ tag }}</a>
+                                                        <a href="{% url 'blog:list' %}?tag={{ tag }}">{{ tag.title }}</a>
                                                     {% endfor %}
                                                 </div>
                                                 <div class="social-style-one mb-10">

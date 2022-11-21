@@ -35,7 +35,7 @@ class BlogListView(ListView):
         qs = BlogPostModel.objects.order_by('-pk')
         tag = self.request.GET.get('tag')
         if tag:
-            return qs.filter(tags__title=tag)
+            return qs.filter(tag__title=tag)
         return qs
 
 
