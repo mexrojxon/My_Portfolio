@@ -16,37 +16,33 @@ class BlogListView(ListView):
     template_name = 'blog/blog.html'
     count_hit = True
 
-
-
     def get_context_data(self, **kwargs):
         context = super(BlogListView, self, **kwargs).get_context_data()
         context['post'] = BlogPostModel.objects.all().order_by('-id')
         context['social'] = SocialMediaModel.objects.all()
         context['categories'] = CategoryModel.objects.all()
         context['tags'] = TagModel.objects.all()
-        context['q'] = self.request.GET.get('q', '')
         context.update({
             'popular_posts': BlogPostModel.objects.order_by('-hit_count_generic__hits')[:3],
         })
 
         return context
 
-    def get_queryset(self):
-        qs = BlogPostModel.objects.order_by('-pk')
-        tag = self.request.GET.get('tag')
-        if tag:
-            return qs.filter(tag__title=tag)
-        return qs
+    # def get_queryset(self):
+    #     qs = BlogPostModel.objects.order_by('-pk')
+    #     tag = self.request.GET.get('tag')
+    #     if tag:
+    #         return qs.filter(tag__title=tag)
+    #     return qs
 
-
-        # qs = BlogPostModel.objects.all()
-        # q = self.request.GET.get('q')
-        # if q:
-        #     qs = qs.filter(Q(title__icontains=q) | Q(description__icontains=q))
-        #     return qs
-        # qs = BlogPostModel.objects.order_by('-pk')
-        #
-        # return qs
+    # qs = BlogPostModel.objects.all()
+    # q = self.request.GET.get('q')
+    # if q:
+    #     qs = qs.filter(Q(title__icontains=q) | Q(description__icontains=q))
+    #     return qs
+    # qs = BlogPostModel.objects.order_by('-pk')
+    #
+    # return qs
 
 
 class BlogDetailView(HitCountDetailView):

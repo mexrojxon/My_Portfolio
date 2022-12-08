@@ -60,6 +60,7 @@ class PortfolioModel(models.Model):
 class ContactModel(models.Model):
     name = models.CharField(max_length=64, verbose_name=_('name'))
     email = models.EmailField(verbose_name=_('email'))
+    phone = models.BigIntegerField(verbose_name=_('phone'))
     message = models.TextField(verbose_name=_('message'))
     created_at = models.DateTimeField(
         auto_now_add=True,

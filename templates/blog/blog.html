@@ -69,7 +69,7 @@
                                         <div class="sidebar rmt-65  pt-4 sticky-bar">
                                             <div class="widget search-widget">
                                                 <form action="{% url 'blog:list' %}" method="GET">
-                                                    <input value="{{ request.GET.q }}" type="search" name="q"
+                                                    <input name="q" value="{{ q  }}" type="search"
                                                            placeholder="Izlash" required>
                                                     <button type="submit"><i class="fas fa-search"></i></button>
                                                 </form>
