@@ -42,6 +42,9 @@
                             <div class="blog-inner mb-140 rmb-80">
                                 <div class="row">
                                     <div class="col-lg-8">
+                                        {% if not post %}
+                                            <div class="alert alert-warning">Hozirda siz izlagan mavzu bo'yicha maqolalar mavjud emas 📝❌</div>
+                                        {% endif %}
                                         {% for post in post %}
                                         <div class="blog-item">
                                             <img src="{{ post.image.url }}"
@@ -59,17 +62,17 @@
                                             </h3>
                                             <p>{{ post.description|safe|truncatewords:'27' }}</p>
                                             <a href="{% url "blog:detail" post.pk %}" class="read-more">Batafsil
-                                            <i
-                                                    class="fas fa-arrow-right"></i></a>
+                                            <i class="fas fa-arrow-right"></i></a>
                                         </div>
                                         <hr>
                                         {% endfor %}
                                     </div>
+                                    
                                     <div class="col-lg-4 ">
                                         <div class="sidebar rmt-65  pt-4 sticky-bar">
                                             <div class="widget search-widget">
                                                 <form action="{% url 'blog:list' %}" method="GET">
-                                                    <input name="q" value="{{ q  }}" type="search"
+                                                    <input name="search" value="{{ search }}" type="search"
                                                            placeholder="Izlash" required>
                                                     <button type="submit"><i class="fas fa-search"></i></button>
                                                 </form>
@@ -79,7 +82,7 @@
                                                 <ul>
                                                     {% for category in categories %}
                                                     <li>
-                                                        <a href="/blog/?category={{category.id}}">{{ category.category }}</a>
+                                                        <a href="{% url 'blog:list' %}?category={{ category }}">{{ category.category }}</a>
                                                         <span>({{ category.post.all.count }})</span></li>
                                                     {% endfor %}
                                                 </ul>
@@ -106,7 +109,7 @@
                                                 <h4 class="widget-title">Taglar</h4>
                                                 <div class="tag-clouds">
                                                     {% for tag in tags %}
-                                                        <a href="{% url 'blog:list' %}?tag={{ tag }}">{{ tag.title }}</a>
+                                                        <a href="{% url 'blog:list' %}?tag={{ tag.title }}">{{tag}}</a>
                                                     {% endfor %}
                                                 </div>
                                             </div>
@@ -168,4 +171,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock  %}

@@ -87,4 +87,4 @@ class SocialMediaModel(models.Model):
     blog = models.URLField(null=True, blank=True)
 
     def __str__(self):
-       return self.instagram
+       return """All links"""
