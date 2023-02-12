@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView, CreateView
 import requests
 from .form import ContactModelForm
-from .models import EducationModel, ExperienceModel, PortfolioModel, SocialMediaModel, ContactModel
+from .models import *
 from config.settings import TOKEN, ADMIN
 
 class MainPageView(TemplateView):
@@ -15,7 +15,8 @@ class MainPageView(TemplateView):
         context['experience'] = ExperienceModel.objects.all()
         context['portfolio'] = PortfolioModel.objects.all()
         context['social'] = SocialMediaModel.objects.all()
-
+        context['resume'] = ResumeModel.objects.all()[:1]
+        
         return context
 
 

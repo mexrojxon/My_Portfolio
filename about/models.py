@@ -5,8 +5,9 @@ from django.utils.translation import gettext_lazy as _
 
 class ResumeModel(models.Model):
     resume = models.FileField(verbose_name=_('resume'), upload_to="resume/", )
-
-    def __name__(self):
+    resume_link = models.URLField(null=True, blank=True)
+    
+    def __text__ (self):
         return self.resume
 
 

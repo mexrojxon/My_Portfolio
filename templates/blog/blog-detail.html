@@ -57,8 +57,8 @@
                                                 </div>
                                                 <div class="social-style-one mb-10">
                                                     <b>Ulashmoq: </b>
-                                                    {% post_to_telegram object_or_url "" %}
-                                                    <!-- {% post_to_telegram object_or_url "" %} -->
+                                                    {% post_to_telegram object_or_url "" " bi-telegram pr-5" %}
+                                                    {% post_to_facebook object_or_url "" "bi bi-facebook " %}
                                                 </div>
                                             </div>
                                         </div>
@@ -86,7 +86,7 @@
                                             {% endif %}
 
                                             {% if link.telegram %}
-                                                <a href="{{ link.telegram }}"><i class="bi bi-telegram fs-25 "></i></a>
+                                                <a href="{{ link.telegram }}"><i class="bi  fs-25 "></i></a>
                                             {% endif %}
 
                                             {% if link.linkedin %}
