@@ -16,7 +16,7 @@ class MainPageView(TemplateView):
         context['portfolio'] = PortfolioModel.objects.all()
         context['social'] = SocialMediaModel.objects.all()
         context['resume'] = ResumeModel.objects.all()[:1]
-        
+
         return context
 
 
@@ -29,11 +29,11 @@ def ContactView(request):
         ContactModel.objects.create(
             name=request.POST.get("name"),
             email=request.POST.get("email"),
-            phone=request.POST.get("phone"),
             message=request.POST.get("message"),
+            phone=request.POST.get("phone" ),
         )
         token = TOKEN
-        text = "Mexroj sizga portfolio saytingizdan xabar yuborishdi 📩: \n\n 👤 Ism: " + request.POST.get('name') + \
+        text = "Mexroj sizga portfolio saytingizdan xabar yuborishdi 📩: \n 👤 Ism: " + request.POST.get('name') + \
                '\n ' \
                + '\n 📧 Email: ' + str(request.POST.get("email")) + '\n 📞 Telefon raqam: ' + str(
             request.POST.get("phone")) + '\n 📝 Xabari: ' + request.POST.get('message')

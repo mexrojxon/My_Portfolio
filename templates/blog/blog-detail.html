@@ -20,12 +20,14 @@
                         <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
                             <div class="container">
                                 <div class="banner-inner">
-                                    <h2 class="page-title">{{single_post.category}} ga doir maqolalar ->
-                                        {{single_post.id}}</h2>
+{#                                    <h2 class="page-title">{{ single_post.category }} ga doir maqolalar ->#}
+{#                                        {{ single_post.slug }}</h2>#}
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{% url 'blog:list' %}">Barcha maqolalar</a></li>
-                                            <li class="breadcrumb-item active">{{ single_post.title }}</li>
+                                            <li class="breadcrumb-item"><a href="{% url 'blog:list' %}">Barcha
+                                                maqolalar</a></li>
+                                            <li class="breadcrumb-item"> <a href="{% url 'blog:list' %}?category={{ category }}"> {{ single_post.category }}</a></li>
+                                            <li class="breadcrumb-item active">{{ single_post.id }}</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -50,9 +52,9 @@
 
                                             <div class="blog-footer d-flex flex-wrap align-items-center pt-25">
                                                 <div class="tag-clouds mb-10 mr-auto">
-                                                    <b>Teglar </b>
+                                                    <b>Teglar :</b>
                                                     {% for tag in single_post.tag.all %}
-                                                        <a href="{% url 'blog:list' %}?tag={{ tag }}">{{ tag.title }}</a>
+                                                        <a href="{% url 'blog:list' %}?tag={{ tag }}">#{{ tag.title }}</a>
                                                     {% endfor %}
                                                 </div>
                                                 <div class="social-style-one mb-10">
@@ -63,7 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
- 
+
                                 </div>
                             </div>
                             <div class="footer-contact text-center mb-35">
@@ -76,36 +78,36 @@
                                 <a href="callto:+998903550427"
                                    class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
                                 {% for link in social %}
-                                        <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
-                                            {% if link.github %}
-                                                <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
-                                            {% endif %}
+                                    <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
+                                        {% if link.github %}
+                                            <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
+                                        {% endif %}
 
-                                            {% if link.instagram %}
-                                                <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
-                                            {% endif %}
+                                        {% if link.instagram %}
+                                            <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
+                                        {% endif %}
 
-                                            {% if link.telegram %}
-                                                <a href="{{ link.telegram }}"><i class="bi  fs-25 "></i></a>
-                                            {% endif %}
+                                        {% if link.telegram %}
+                                            <a href="{{ link.telegram }}"><i class="bi  fs-25 "></i></a>
+                                        {% endif %}
 
-                                            {% if link.linkedin %}
-                                                <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
-                                            {% endif %}
+                                        {% if link.linkedin %}
+                                            <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
+                                        {% endif %}
 
-                                            {% if link.blog %}
-                                                <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
-                                            {% endif %}
+                                        {% if link.blog %}
+                                            <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
+                                        {% endif %}
 
-                                            {% if link.youtube %}
-                                                <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
-                                            {% endif %}
+                                        {% if link.youtube %}
+                                            <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
+                                        {% endif %}
 
-                                            {% if link.twitter %}
-                                                <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
-                                            {% endif %}
-                                        </div>
-                                    {% endfor %}
+                                        {% if link.twitter %}
+                                            <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="footer-bottom-shape">

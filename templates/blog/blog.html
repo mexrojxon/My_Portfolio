@@ -5,170 +5,204 @@
 {% load static %}
 
 {% block content %}
-<div class="wrapper">
+    <div class="wrapper">
 
-    <!-- Preloader -->
-    <div class="preloader"></div>
+        <!-- Preloader -->
+        <div class="preloader"></div>
 
-    <header id="header" class="header">
-        <div class="container-fluid">
-            <div class="brand">
-                <a href="{% url 'about:main' %}" class="brand-name"><b>NIZOM</b>OFF</a>
+        <header id="header" class="header">
+            <div class="container-fluid">
+                <div class="brand">
+                    <a href="{% url 'about:main' %}" class="brand-name"><b>NIZOM</b>OFF</a>
+                </div>
             </div>
-        </div>
-    </header>
-    <div id="content">
-        <div class="a-pagepiling full-page">
-            <div class="section pp-scrollable slide slide-blog">
-                <div class="slide-container pt-0">
-                    <div class="page-inner-content">
-                        <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
+        </header>
+        <div id="content">
+            <div class="a-pagepiling full-page">
+                <div class="section pp-scrollable slide slide-blog">
+                    <div class="slide-container pt-0">
+                        <div class="page-inner-content">
+                            <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
+                                <div class="container">
+                                    <div class="banner-inner">
+                                        <h3 class="fs-25">Bu yerda men shaxsiy fikrlarimni va maqolalarimni
+                                            yozaman</h3>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Bosh
+                                                    sahifa</a>
+                                                </li>
+                                                <li class="breadcrumb-item active">Blog</li>
+                                                {% if post.post.category %}
+                                                <li class="breadcrumb-item ">{{ post.categories }}</li>
+                                                {% endif %}
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="container">
-                                <div class="banner-inner">
-                                    <h3 class="fs-25">Bu yerda men shaxsiy fikrlarimni va maqolalarimni
-                                        yozaman</h3>
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{% url 'about:main' %}">Bosh
-                                                sahifa</a>
-                                            </li>
-                                            <li class="breadcrumb-item active">Blog</li>
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="blog-inner mb-140 rmb-80">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        {% if not post %}
-                                            <div class="alert alert-warning">Hozirda siz izlagan mavzu bo'yicha maqolalar mavjud emas 📝❌</div>
-                                        {% endif %}
-                                        {% for post in post %}
-                                        <div class="blog-item">
-                                            <img src="{{ post.image.url }}"
-                                                 alt="{{ post.title|truncatewords:'4' }}">
-                                            <ul class="blog-meta">
-                                                <li><i class="far fa-calendar-alt"></i> <a
-                                                        href="#">{{ post.created_at|date:'d M Y' }}</a>
-                                                </li>
-                                                <li><i class="far fa-comments"></i> <a href="#">Izohlar
-                                                    ({{ post.comments.all.count }})</a>
-                                                </li>
-                                                <li><i class="far fa-eye"></i>{% get_hit_count for post %}</li>
-                                            </ul>
-                                            <h3><a href="{% url "blog:detail" post.pk %}">{{ post.title }}</a>
-                                            </h3>
-                                            <p>{{ post.description|safe|truncatewords:'27' }}</p>
-                                            <a href="{% url "blog:detail" post.pk %}" class="read-more">Batafsil
-                                            <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-inner mb-140 rmb-80">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            {% if not post %}
+                                                <div class="alert alert-warning">Hozirda siz izlagan mavzu bo'yicha
+                                                    maqolalar mavjud emas 📝❌
+                                                </div>
+                                            {% endif %}
+                                            {% for post in post %}
+                                                <div class="blog-item">
+                                                    <img src="{{ post.image.url }}"
+                                                         alt="{{ post.title|truncatewords:'4' }}">
+                                                    <ul class="blog-meta">
+                                                        <li><i class="far fa-calendar-alt"></i> <a
+                                                                href="#">{{ post.created_at|date:'d M Y' }}</a>
+                                                        </li>
+                                                        <li><i class="far fa-comments"></i> <a href="#">Izohlar
+                                                            ({{ post.comments.all.count }})</a>
+                                                        </li>
+                                                        <li><i class="far fa-eye"></i>{% get_hit_count for post %}</li>
+                                                    </ul>
+                                                    <h3><a href="{% url "blog:detail" post.slug %}">{{ post.title }}</a>
+                                                    </h3>
+                                                    <p>{{ post.description|safe|truncatewords:'20' }}</p>
+                                                    <a href="{% url "blog:detail" post.slug %}" class="read-more">Batafsil
+                                                        <i class="fas fa-arrow-right"></i></a>
+                                                </div>
+                                                <hr>
+                                            {% endfor %}
                                         </div>
-                                        <hr>
-                                        {% endfor %}
-                                    </div>
-                                    
-                                    <div class="col-lg-4 ">
-                                        <div class="sidebar rmt-65  pt-4 sticky-bar">
-                                            <div class="widget search-widget">
-                                                <form action="{% url 'blog:list' %}" method="GET">
-                                                    <input name="search" value="{{ search }}" type="search"
-                                                           placeholder="Izlash" required>
-                                                    <button type="submit"><i class="fas fa-search"></i></button>
-                                                </form>
-                                            </div>
-                                            <div class="widget category-widget">
-                                                <h4 class="widget-title">Turkumlar</h4>
-                                                <ul>
-                                                    {% for category in categories %}
-                                                    <li>
-                                                        <a href="{% url 'blog:list' %}?category={{ category }}">{{ category.category }}</a>
-                                                        <span>({{ category.post.all.count }})</span></li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                            <div class="widget news-widget">
-                                                <h4 class="widget-title">Eng ko'p o'qilgan</h4>
-                                                <div class="news-widget-wrap">
-                                                    {% for popular in popular_posts %}
-                                                    <div class="news-widget-item">
-                                                        <img style="width:120px; " src="{{ popular.image.url }}"
-                                                             alt="News">
-                                                        <div class="content">
-                                                            <h6>
-                                                                <a href="{% url "blog:detail" popular.pk %}">{{ popular.title }}</a>
-                                                            </h6>
-                                                            <span class="date"><i
-                                                                    class="far fa-calendar-alt"></i>{{ popular.created_at|date:'d M Y' }}</span>
-                                                        </div>
+
+                                        <div class="col-lg-4 ">
+                                            <div class="sidebar rmt-65  pt-4 sticky-bar">
+                                                <div class="widget search-widget">
+                                                    <form action="{% url 'blog:list' %}" method="GET">
+                                                        <input name="search" value="{{ search }}" type="search"
+                                                               placeholder="Izlash" required>
+                                                        <button type="submit"><i class="fas fa-search"></i></button>
+                                                    </form>
+                                                </div>
+                                                <div class="widget category-widget">
+                                                    <h4 class="widget-title">Turkumlar</h4>
+                                                    <ul>
+                                                        {% for category in categories %}
+                                                            <li>
+                                                                <a href="{% url 'blog:list' %}?category={{ category }}">
+                                                                    {{ category.category }}</a>
+                                                                <span>({{ category.post.all.count }})</span></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                <div class="widget news-widget">
+                                                    <h4 class="widget-title">Eng ko'p o'qilgan</h4>
+                                                    <div class="news-widget-wrap">
+                                                        {% for popular in popular_posts %}
+                                                            <div class="news-widget-item">
+                                                                <img style="width:120px; " src="{{ popular.image.url }}"
+                                                                     alt="News">
+                                                                <div class="content">
+                                                                    <h6>
+                                                                        <a href="{% url "blog:detail" popular.slug %}">{{ popular.title }}</a>
+                                                                    </h6>
+                                                                    <span class="date"><i
+                                                                            class="far fa-calendar-alt"></i>{{ popular.created_at|date:'d M Y' }}</span>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
                                                     </div>
-                                                    {% endfor %}
                                                 </div>
-                                            </div>
-                                            <div class="widget tag-widget">
-                                                <h4 class="widget-title">Taglar</h4>
-                                                <div class="tag-clouds">
-                                                    {% for tag in tags %}
-                                                        <a href="{% url 'blog:list' %}?tag={{ tag.title }}">{{tag}}</a>
-                                                    {% endfor %}
+                                                <div class="widget tag-widget">
+                                                    <h4 class="widget-title">Taglar</h4>
+                                                    <div class="tag-clouds">
+                                                        {% for tag in tags %}
+                                                            <a href="{% url 'blog:list' %}?tag={{ tag.title }}">{{ tag }}</a>
+                                                        {% endfor %}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    {% if post.paginator.count > 4 %}
+                                        <div class="d-flex justify-content-center">
+                                                    <ul class="pagination">
+                                                        <li class="page-item">
+                                                            {% if post.has_previous %}
+                                                                <a class="page-link"
+                                                                   href="?page={{ post.previous_page_number }}">{{ post.previous_page_number }}</a>
+                                                            {% endif %}
+                                                        </li>
+                                                        <li class="page-item">
+                                                            <a style="border-color: #DF5646" class="page-link">{{ post.number }}</a>
+                                                        </li>
+                                                        <li class="page-item">
+                                                            {% if post.has_next %}
+                                                                <a class="page-link"
+                                                                   href="?page={{ post.next_page_number }}"
+                                                                   aria-label="Next">
+                                                                    {{ post.next_page_number }}
+                                                                </a>
+                                                            {% endif %}
+                                                        </li>
+                                                    </ul>
+
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                                <div class="footer-contact text-center mb-35">
+                                    <div class="section-title mb-30 animate-element delay8 fadeInUp">
+                                        <h2>Aloqada bo'ling</h2>
+                                    </div>
+                                    <span class="country list-inline-item animate-element delay9 fadeInUp">Tashkent. Uzbekistan</span>
+                                    <h3 class="animate-element delay6 fadeInUp"><a
+                                            href="mailto:mexrojxon.dev@gmail.com">mexrojxon.dev@gmail.com</a>
+                                    </h3>
+                                    <a href="callto:+998903550427"
+                                       class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
+                                    {% for link in social %}
+                                        <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
+                                            {% if link.github %}
+                                                <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.instagram %}
+                                                <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.telegram %}
+                                                <a href="{{ link.telegram }}"><i class="bi bi-telegram fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.linkedin %}
+                                                <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.blog %}
+                                                <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.youtube %}
+                                                <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
+                                            {% endif %}
+
+                                            {% if link.twitter %}
+                                                <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </div>
-                            <div class="footer-contact text-center mb-35">
-                                <div class="section-title mb-30 animate-element delay8 fadeInUp">
-                                    <h2>Aloqada bo'ling</h2>
-                                </div>
-                                <span class="country list-inline-item animate-element delay9 fadeInUp">Tashkent. Uzbekistan</span>
-                                <h3 class="animate-element delay6 fadeInUp"><a
-                                        href="mailto:mexrojxon.dev@gmail.com">mexrojxon.dev@gmail.com</a>
-                                </h3>
-                                <a href="callto:+998903550427"
-                                   class="number list-inline-item animate-element delay10 fadeInUp">+998903550427</a>
-                                {% for link in social %}
-                                <div class="social-style-two mt-25 animate-element delay11 fadeInUp">
-                                    {% if link.github %}
-                                    <a href="{{ link.github }}"><i class="bi bi-github fs-25 "></i></a>
-                                    {% endif %}
 
-                                    {% if link.instagram %}
-                                    <a href="{{ link.instagram }}"><i class="bi-instagram fs-25 "></i></a>
-                                    {% endif %}
-
-                                    {% if link.telegram %}
-                                    <a href="{{ link.telegram }}"><i class="bi bi-telegram fs-25 "></i></a>
-                                    {% endif %}
-
-                                    {% if link.linkedin %}
-                                    <a href="{{ link.linkedin }}"><i class="bi bi-linkedin fs-25 "></i></a>
-                                    {% endif %}
-
-                                    {% if link.blog %}
-                                    <a href="{{ link.blog }}"><i class="bi bi-pencil fs-25 "></i></a>
-                                    {% endif %}
-
-                                    {% if link.youtube %}
-                                    <a href="{{ link.youtube }}"><i class="bi bi-youtube fs-25 "></i></a>
-                                    {% endif %}
-
-                                    {% if link.twitter %}
-                                    <a href="{{ link.twitter }}"><i class="bi bi-twitter fs-25 "></i></a>
-                                    {% endif %}
-                                </div>
-                                {% endfor %}
+                            <div class="footer-bottom-shape">
+                                <img src="{% static 'images/contact/footer-bottom-shape.png' %}" alt="Shape">
                             </div>
-                        </div>
-
-                        <div class="footer-bottom-shape">
-                            <img src="{% static 'images/contact/footer-bottom-shape.png' %}" alt="Shape">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-{% endblock  %}
+{% endblock %}

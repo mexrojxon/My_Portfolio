@@ -11,7 +11,7 @@ from hitcount.models import HitCount
 
 class CategoryModel(models.Model):
     category = models.CharField(max_length=50, verbose_name=_('category'))
-    created_at = models.DateTimeField(verbose_name=_('created_at'))
+    created_at = models.DateTimeField(verbose_name=_('created_at'),auto_now=True)
 
     def __str__(self):
         return self.category
@@ -23,7 +23,7 @@ class CategoryModel(models.Model):
 
 class TagModel(models.Model):
     title = models.CharField(max_length=100, verbose_name=_('title'))
-    created_at = models.DateTimeField(verbose_name=_('created_at'))
+    created_at = models.DateTimeField(verbose_name=_('created_at'), auto_now=True)
 
     def __str__(self):
         return self.title
@@ -46,10 +46,11 @@ class BlogPostModel(models.Model):
     tag = models.ManyToManyField(
         TagModel,
         related_name='post',
-        verbose_name=_('tags')
+        verbose_name=_('tags'),
+        blank=True
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created'))
-    slug = models.SlugField(unique=True, max_length=100)
+    slug = models.SlugField(unique=True, max_length=500)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',
                                         related_query_name='hit_count_generic_relation')
 

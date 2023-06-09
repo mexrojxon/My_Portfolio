@@ -84,10 +84,11 @@
                                        class="theme-btn mt-45 rmt-25 animate-element delay9 fadeInUp">hire me <i
                                             class="fas fa-long-arrow-alt-right"></i></a>
                                     <div class="social-style-one mt-55 rmt-35 animate-element delay10 fadeInUp">
-                                        <a href="https://t.me/+998903550427"><i class="fab fa-telegram"></i></a>
-                                        <a href="https://github.com/mexrojxon"><i class="fab fa-github"></i></a>
-                                        <a href="https://www.instagram.com/mexroj.nizomov/"><i
-                                                class="fab fa-instagram"></i></a>
+                                       {% for link in social %}
+                                       <a href="{{ link.telegram }}"><i class="fab fa-telegram"></i></a>
+                                       <a href="{{ link.github }}"><i class="fab fa-github"></i></a>
+                                       <a href="{{ link.instagram }}"><i class="fab fa-instagram"></i></a>
+                                       {% endfor %}
                                     </div>
                                 </div>
                             </div>
@@ -374,16 +375,13 @@
                             <div class="col-lg-6">
                                 <div class="weapons-content rmb-75 animate-element delay5 fadeInUp">
                                     <div class="section-title mb-35">
-                                        <span class="sub-title mb-45">My Weapons</span>
+                                        <span class="sub-title mb-45">Foydalanadigan qurollarim</span>
                                         <h2 class="slide-title animate-element delay5 fadeInUp">My <span
                                                 class="text-typed a-typed a-typed-weapons"
                                                 data-text="favorite tools"></span> which i Used Everyday in my life.
                                         </h2>
                                     </div>
-                                    <p class="animate-element delay6 fadeInUp">I always loved those software that I
-                                        use in my work, because I am very good at these, these are the main tools of
-                                        my programming career those are help me for make sure my Clients
-                                        satisfaction.</p>
+                                    <p class="animate-element delay6 fadeInUp">Men har doim o'z ishimda foydalanadigan dasturiy ta'minotni yaxshi ko'raman, chunki men bularni juda yaxshi bilaman, bu mening dasturlash kareramning asosiy vositalari bo'lib, mijozlarim mamnun bo'lishiga ishonch hosil qilishimga yordam beradi.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -420,7 +418,7 @@
                 </div>
             </div>
 
-            <!-- Section Contact Page -->
+            <!-- Section Contact Page uz-ok -->
             <div class="section pp-scrollable slide slide-contact slide-light" data-name="contact">
                 <div class="slide-container">
                     <div class="container">
@@ -429,9 +427,8 @@
                                 <div class="col-lg-7">
                                     <div class="contact-content">
                                         <div class="section-title mb-55">
-                                            <span class="sub-title mb-55 animate-element delay5 fadeInUp">contact me</span>
-                                            <h2 class="slide-title animate-element delay6 fadeInUp">Estimate your
-                                                project? Let me know here.</h2>
+                                            <span class="sub-title mb-55 animate-element delay5 fadeInUp">BOG'LANISH</span>
+                                            <h2 class="slide-title animate-element delay6 fadeInUp">Qiziqtirgan savol yoki taklifingiz bormi ?</h2>
                                         </div>
 
                                         <form action="{% url 'about:contact' %}" method="POST"
@@ -439,19 +436,19 @@
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <input type="text" id="name" name="name" class="form-control"
-                                                       placeholder="What's your name?" required>
+                                                       placeholder="Ismingiz nima?" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="email" id="email" name="email" class="form-control"
-                                                       placeholder="Your email" required>
+                                                       placeholder="Email manzilingiz? " required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" id="phone" name="phone" class="form-control"
-                                                       placeholder="Phone number" required>
+                                                       placeholder="Telefon raqamingiz ? (majburiy emas!)">
                                             </div>
                                             <div class="form-group">
                                                     <textarea name="message" id="message" rows="1" class="form-control"
-                                                              placeholder="Tell me about your project"
+                                                              placeholder="Murojaatingiz mazmuni haqida aytib bering"
                                                               required></textarea>
                                             </div>
                                             <button type="submit"><i class="fas fa-paper-plane"></i></button>

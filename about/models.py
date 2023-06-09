@@ -33,7 +33,7 @@ class ExperienceModel(models.Model):
     position = models.CharField(max_length=50, verbose_name=_('position'))
     short_description = models.TextField(verbose_name=_('short_description'))
     start_date = models.DateField(verbose_name=_('start_date'))
-    end_date = models.DateField(verbose_name=_('end_date'))
+    end_date = models.DateField(verbose_name=_('end_date'), )
     created_at = models.DateTimeField(verbose_name=_('created_at'), auto_now_add=True)
 
     class Meta:
@@ -61,7 +61,7 @@ class PortfolioModel(models.Model):
 class ContactModel(models.Model):
     name = models.CharField(max_length=64, verbose_name=_('name'))
     email = models.EmailField(verbose_name=_('email'))
-    phone = models.BigIntegerField(verbose_name=_('phone'))
+    phone = models.BigIntegerField(verbose_name=_('phone'), null=True, blank=True,)
     message = models.TextField(verbose_name=_('message'))
     created_at = models.DateTimeField(
         auto_now_add=True,

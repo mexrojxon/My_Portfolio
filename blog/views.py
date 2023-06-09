@@ -9,6 +9,8 @@ import requests
 from about.models import SocialMediaModel
 from blog.form import CommentModelForm
 from blog.models import BlogPostModel, CategoryModel, TagModel, CommentModel
+from django.core.paginator import Paginator
+
 
 def BlogListView(request):
     if "search" in request.GET:
@@ -16,26 +18,30 @@ def BlogListView(request):
         post = BlogPostModel.objects.filter(Q(title__icontains=search) | Q(description__icontains=search))
     elif "tag" in request.GET:
         tag = request.GET["tag"]
-        post = BlogPostModel.objects.filter(tag__title=tag) 
+        post = BlogPostModel.objects.filter(tag__title=tag)
     elif "category" in request.GET:
         category = request.GET["category"]
         post = BlogPostModel.objects.filter(category__category=category)
     else:
         post = BlogPostModel.objects.all().order_by('-id')
-    
+    paginator = Paginator(post, 4)
+    page = request.GET.get('page')
+    post = paginator.get_page(page)
     social = SocialMediaModel.objects.all()
     popular_posts = BlogPostModel.objects.order_by('-hit_count_generic__hits')[:3]
     categories = CategoryModel.objects.all()
     tags = TagModel.objects.all()
     context = {
-        "post" : post,
+        "post": post,
         "social": social,
         "popular_posts": popular_posts,
-        "categories":categories,
-        "tags":tags
+        "categories": categories,
+        "tags": tags,
 
-       }
-    return render(request, 'blog/blog.html', context )
+
+    }
+    return render(request, 'blog/blog.html', context)
+
 
 class BlogDetailView(HitCountDetailView):
     model = BlogPostModel
@@ -43,8 +49,6 @@ class BlogDetailView(HitCountDetailView):
     context_object_name = 'single_post'
     slug_field = 'slug'
     count_hit = True
-    
-
 
 # class BlogCommentView(CreateView):
 #     form_class = CommentModelForm
