@@ -6,8 +6,8 @@ from django.utils.translation import gettext_lazy as _
 class ResumeModel(models.Model):
     resume = models.FileField(verbose_name=_('resume'), upload_to="resume/", )
     resume_link = models.URLField(null=True, blank=True)
-    
-    def __text__ (self):
+
+    def __text__(self):
         return self.resume
 
 
@@ -16,9 +16,14 @@ class EducationModel(models.Model):
     country = models.CharField(max_length=50, verbose_name=_('country'))
     faculty = models.CharField(max_length=70, verbose_name=_('faculty'), blank=True, null=True)
     start_date = models.DateField(verbose_name=_('start_date'))
-    end_date = models.DateField(verbose_name=_('end_date'))
+    end_date = models.DateField(verbose_name=_('end_date'), null=True, blank=True)
     short_description = models.TextField(verbose_name=_('short_description'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def __str__(self):
+        if self.end_date:
+            return str(self.end_date)
+        return "Present"
 
     class Meta:
         verbose_name = _('education')
@@ -33,8 +38,13 @@ class ExperienceModel(models.Model):
     position = models.CharField(max_length=50, verbose_name=_('position'))
     short_description = models.TextField(verbose_name=_('short_description'))
     start_date = models.DateField(verbose_name=_('start_date'))
-    end_date = models.DateField(verbose_name=_('end_date'), )
+    end_date = models.DateField(verbose_name=_('end_date'), null=True, blank=True)
     created_at = models.DateTimeField(verbose_name=_('created_at'), auto_now_add=True)
+
+    def __str__(self):
+        if self.end_date:
+            return str(self.end_date)
+        return "Present"
 
     class Meta:
         verbose_name = _('Experience')
@@ -61,7 +71,7 @@ class PortfolioModel(models.Model):
 class ContactModel(models.Model):
     name = models.CharField(max_length=64, verbose_name=_('name'))
     email = models.EmailField(verbose_name=_('email'))
-    phone = models.BigIntegerField(verbose_name=_('phone'), null=True, blank=True,)
+    phone = models.BigIntegerField(verbose_name=_('phone'), null=True, blank=True, )
     message = models.TextField(verbose_name=_('message'))
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -77,7 +87,7 @@ class ContactModel(models.Model):
 
 
 class SocialMediaModel(models.Model):
-    instagram = models.URLField(null=True, blank=True,)
+    instagram = models.URLField(null=True, blank=True, )
     telegram = models.URLField(null=True, blank=True)
     youtube = models.URLField(null=True, blank=True)
     github = models.URLField(null=True, blank=True)
@@ -88,4 +98,4 @@ class SocialMediaModel(models.Model):
     blog = models.URLField(null=True, blank=True)
 
     def __str__(self):
-       return """All links"""
+        return """All links"""

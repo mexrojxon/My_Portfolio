@@ -58,5 +58,10 @@
 <script src="{% static 'js/typed.min.js' %}"></script>
 <!--====== Main JS ======-->
 <script src="{% static 'js/script.js' %}"></script>
+
+<script>
+    var currentYear = new Date().getFullYear();
+    document.getElementById("current-year").textContent = currentYear;
+</script>
 </body>
 </html>

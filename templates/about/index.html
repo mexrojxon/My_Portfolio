@@ -276,7 +276,7 @@
                                     <div class="edu-experi-wrap">
                                         {% for edu in education %}
                                         <div class="edu-experi-item animate-element delay5 fadeInUp">
-                                            <span class="years">{{ edu.start_date|date:'Y' }}-{{ edu.end_date|date:'Y' }}</span>
+                                            <span class="years">{{ edu.start_date|date:'Y' }}-{% if not edu.end_date %}prsnt{% else %}{{ edu.end_date|date:'Y' }}{% endif %} </span>
                                             <div class="vacancy-content">
                                                 <span class="title">{{ edu.place }}</span>
                                                 {% if edu.faculty %}
@@ -300,9 +300,7 @@
                                     <div class="edu-experi-wrap">
                                         {% for job in experience %}
                                         <div class="edu-experi-item dribbble animate-element delay10 fadeInUp">
-                                                    <span class="years">{{ job.start_date|date:'Y' }}-
-                                                        {% if job.end_date > time.now %} present{% else %}
-                                                            {{ job.end_date|date:'Y' }}{% endif %}</span>
+                                                    <span class="years">{{ job.start_date|date:'Y' }}-{% if not job.end_date %}prsnt{% else %}{{ job.end_date|date:'Y' }}{% endif %} </span>
                                             <div class="vacancy-content">
                                                 <span class="title">{{ job.company }}</span>
                                                 <h4 class="subject">{{ job.position }}</h4>
@@ -397,7 +395,7 @@
                                         <img src="{% static 'images/weapons/github.png' %} " alt="github">
                                     </div>
                                     <div class="weapons-item four animate-element delay7 fadeInLeft">
-                                        <img src="{% static 'images/weapons/terminal.png' %} " alt="linux terminal">
+                                        <img src="{% static 'images/weapons/ChatGPT.png' %} " alt="linux terminal">
                                     </div>
                                     <div class="weapons-item five animate-element delay8 fadeInRight">
                                         <img src="{% static 'images/weapons/google.png' %} " alt="google">
