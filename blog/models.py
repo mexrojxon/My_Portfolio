@@ -6,7 +6,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from hitcount.models import HitCount
+from hitcount.models import HitCount, HitCountMixin
 
 
 class CategoryModel(models.Model):
@@ -33,7 +33,7 @@ class TagModel(models.Model):
         verbose_name_plural = 'tags'
 
 
-class BlogPostModel(models.Model):
+class BlogPostModel(models.Model, HitCountMixin):
     title = models.CharField(max_length=300, verbose_name=_('title'))
     description = RichTextUploadingField(null=True, verbose_name=_('description'))
     image = models.ImageField(upload_to='blog/', verbose_name=_('image'))

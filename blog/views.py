@@ -1,5 +1,5 @@
 from django.http import request
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView, CreateView
 from hitcount.models import HitCount
@@ -7,7 +7,7 @@ from hitcount.views import HitCountDetailView
 from django.db.models import Q
 import requests
 from about.models import SocialMediaModel
-from blog.form import CommentModelForm
+from blog.form import CommentForm
 from blog.models import BlogPostModel, CategoryModel, TagModel, CommentModel
 from django.core.paginator import Paginator
 
@@ -50,32 +50,26 @@ class BlogDetailView(HitCountDetailView):
     slug_field = 'slug'
     count_hit = True
 
-# class BlogCommentView(CreateView):
-#     form_class = CommentModelForm
-#
-#     def form_valid(self, form):
-#         form.instance.post = get_object_or_404(BlogPostModel, pk=self.kwargs.get('slug'))
-#         return super(BlogCommentView, self).form_valid(form)
-#
-#     def get_success_url(self):
-#         return reverse('blog:detail')
+    def post_comment(request, slug):
+        if request.method == 'POST':
+            post = BlogPostModel.objects.get(slug=slug)
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            comment = request.POST.get('comment')
 
-# def BlogCommentView(request, pk):
-#     comment = CommentModel.objects.all()
+            comment_obj = CommentModel.objects.create(
+                post=post,
+                name=name,
+                email=email,
+                comment=comment
+                )
+            comment_obj.save()
 
-#     context = {
-#         'comment': comment,
-#     }
-#     if request.method == "POST":
-#         CommentModel.objects.create(
-#             name=request.POST.get("name"),
-#             email=request.POST.get("email"),
-#             comment=request.POST.get("comment"),
-#         )
-#         token = token
-#         text = "Mexroj sizga portfolio saytingizdan xabar yuborishdi 📩: \n\n 👤 Ism: " + request.POST.get('name') + \
-#                '\n ' \
-#                + '\n 📧 Email: ' + str(request.POST.get("email")) + '\n  📝 Xabari: ' + request.POST.get('comment')
-#         url = 'https://api.telegram.org/bot' + token + '/sendMessage?chat_id='
-#         requests.get(url + str(674182086) + '&text=' + text)
-#     return render(request, 'blog/blog-detail.html', context)
+        return redirect('blog:detail', slug=slug)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comments = CommentModel.objects.filter(post=post)
+        context['comments'] = comments
+        return context

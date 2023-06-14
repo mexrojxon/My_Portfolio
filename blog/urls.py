@@ -7,5 +7,5 @@ urlpatterns = [
     path('', BlogListView, name='list'),
     path('<slug:slug>/', BlogDetailView.as_view(), name='detail'),
     path('hitcount/', include(('hitcount.urls', 'hitcount'), namespace='hitcount')),
-    # path('<int:pk>/comment/', BlogCommentView, name='comment')
+    path('<slug:slug>/comment/', BlogDetailView.post_comment, name='comment')
 ]

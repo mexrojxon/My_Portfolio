@@ -20,13 +20,15 @@
                         <div class="banner-section bg-lighter pt-150 pb-85 rpb-75 mb-100">
                             <div class="container">
                                 <div class="banner-inner">
-{#                                    <h2 class="page-title">{{ single_post.category }} ga doir maqolalar ->#}
-{#                                        {{ single_post.slug }}</h2>#}
+                                    {#                                    <h2 class="page-title">{{ single_post.category }} ga doir maqolalar ->#}
+                                    {#                                        {{ single_post.slug }}</h2>#}
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{% url 'blog:list' %}">Barcha
                                                 maqolalar</a></li>
-                                            <li class="breadcrumb-item"> <a href="{% url 'blog:list' %}?category={{ category }}"> {{ single_post.category }}</a></li>
+                                            <li class="breadcrumb-item"><a
+                                                    href="{% url 'blog:list' %}?category={{ category }}"> {{ single_post.category }}</a>
+                                            </li>
                                             <li class="breadcrumb-item active">{{ single_post.id }}</li>
                                         </ol>
                                     </nav>
@@ -63,6 +65,43 @@
                                                     {% post_to_facebook object_or_url "" "bi bi-facebook " %}
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="test">
+                                            <h2>Comments</h2>
+                                            <ul>
+                                                {% for comment in comments %}
+                                                    <li>
+                                                        <strong>{{ comment.name }}</strong> |
+                                                        {{ comment.comment }}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+
+                                            <form method="POST" action="{% url 'blog:comment' single_post.slug %}">
+                                                {% csrf_token %}
+                                                <div class="row clearfix">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <textarea name="comment" id="comment" rows="5" class="form-control" placeholder="Write Message" required=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group mb-0">
+                                                            <button class="theme-btn" type="submit">send message <i class="fas fa-arrow-right"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
 
