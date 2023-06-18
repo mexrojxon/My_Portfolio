@@ -66,18 +66,31 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="test">
-                                            <h2>Comments</h2>
-                                            <ul>
-                                                {% for comment in comments %}
-                                                    <li>
-                                                        <strong>{{ comment.name }}</strong> |
-                                                        {{ comment.comment }}
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
+                                        <div class="comments pb-15">
+                                            {% if comments %}
+                                            <h3 class="comment-title mb-55">Peopel Comments</h3>
+                                            {% endif %}
+                                            {% for comment in comments %}
+                                                <div class="comment-item wow fadeInUp delay-0-6s">
+                                                    <!-- <div class="author-image">
+                                                        <img src="assets/images/blog/comment-author-1.jpg" alt="Author">
+                                                    </div> -->
+                                                    <div class="comment-details" style="border: 4px solid gray; border-radius: 20px; padding:30px">
+                                                        <div class="name-date">
+                                                            <h5>{{comment.name}}</h5>
+                                                            <strong class="date" style="color: #DF5646">{{comment.created_at|date:'d M Y'}}   |   {{comment.created_at|date:'H : i'}} </strong>
+                                                        </div>
+                                                        <p>{{comment.comment}}</p>
+                                                        <!-- <a href="blog-details.html" class="reply">Reply <i class="fas fa-long-arrow-alt-right"></i></a> -->
+                                                    </div>
+                                                </div>
+                                            {% endfor %}                                         
+                                            
+                                        </div>
+                                            
 
                                             <form method="POST" action="{% url 'blog:comment' single_post.slug %}">
+                                                <h3 class="comment-title">Leave a comment</h3>
                                                 {% csrf_token %}
                                                 <div class="row clearfix">
                                                     <div class="col-sm-6">
@@ -102,7 +115,7 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
