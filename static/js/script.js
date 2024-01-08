@@ -37,7 +37,7 @@
             $('.a-pagepiling').pagepiling({
                 scrollingSpeed: 280,
                 menu: '#menu, #menuMain',
-                anchors: ['About', 'Services', 'Skills', 'Resume', 'Portfolio', 'Weapons', 'Contact'],
+                anchors: ['About', 'Services', 'Skills', 'Resume', 'Portfolio', 'Weapons', 'contact'],
                 loopTop: false,
                 loopBottom: false,
                 navigation: {
@@ -135,20 +135,20 @@
         }
 
         
-        // 05. Testimonials Carousel
-        if ($('.testimonials-wrap').length) {
-            $('.testimonials-wrap').slick({
-                infinite: true,
-                autoplay: false,
-                arrows: false,
-                dots: true,
-                fade: true,
-                pauseOnHover: false,
-                autoplaySpeed: 2000,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-            });
-        }
+        // // 05. Testimonials Carousel
+        // if ($('.testimonials-wrap').length) {
+        //     $('.testimonials-wrap').slick({
+        //         infinite: true,
+        //         autoplay: false,
+        //         arrows: false,
+        //         dots: true,
+        //         fade: true,
+        //         pauseOnHover: false,
+        //         autoplaySpeed: 2000,
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1,
+        //     });
+        // }
 
         
     });

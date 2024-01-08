@@ -33,12 +33,12 @@ def ContactView(request):
             phone=request.POST.get("phone" ),
         )
         token = TOKEN
-        text = "Mexroj sizga portfolio saytingizdan xabar yuborishdi 📩: \n 👤 Ism: " + request.POST.get('name') + \
-               '\n ' \
-               + '\n 📧 Email: ' + str(request.POST.get("email")) + '\n 📞 Telefon raqam: ' + str(
-            request.POST.get("phone")) + '\n 📝 Xabari: ' + request.POST.get('message')
+        text = "Mexroj sizga portfolio saytingizdan xabar yuborishdi 📩: \n\n👤 Ism: " + str(request.POST.get('name', '')) + \
+       '\n\n📧 Email: ' + str(request.POST.get("email", '')) + '\n\n📞 Telefon raqam: ' + str(request.POST.get("phone", '')) + \
+       '\n\n📝 Xabari: ' + str(request.POST.get('message', ''))
         url = 'https://api.telegram.org/bot' + token + '/sendMessage?chat_id='
         requests.get(url + str(ADMIN) + '&text=' + text)
+
     return render(request, 'about/index.html', context)
 
 
